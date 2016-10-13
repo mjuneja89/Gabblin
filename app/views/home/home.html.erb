@@ -1,0 +1,86 @@
+
+<% content_for :head do %>
+  
+  <title>Gabblin: Just be yourself</title>
+  <meta name="description" content= "'Gabblin' is a collection of the best communities on the internet. Connect with like minded people and share your opinions, interests and ideas.">    
+  <meta property="og:site_name" content="gabblin">
+  <meta property="og:title" content="Gabblin: Just Be Yourself">
+  <meta property="og:url" content="http://www.gabblin.com" />
+  <meta property="og:image" content="<%= image_url('gabblin.jpg') %>">
+  <meta property="og:image:width" content="300">
+  <meta property="og:image:height" content="300">
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-72599891-1', 'auto');
+  ga('send', 'pageview');
+</script>
+ 
+<% end %>
+    
+  
+  <%= render 'shared/navbar' %>
+  <%= render 'shared/navbarsupport' %> 
+
+  <% if @cover.id == 1 %> 
+   
+   <div class="gabblinarea">
+     
+     <figure class="gabblinimage">
+     </figure>
+     
+     <div class="gabblincaption">
+      <h1>Just Be Yourself.</h1>
+     </div>
+
+   </div>
+   
+   <% elsif @cover.id == 2 %>
+
+   <div class="gabblinarea">
+     
+     <figure class="gabblinimage1">
+     </figure>
+     
+     <div class="gabblincaption">
+      <h1>The Best Content From The Best Communities.</h1>
+     </div>
+
+   </div>
+   
+   <% else %>
+
+   <div class="gabblinarea">
+     
+     <figure class="gabblinimage2">
+     </figure>
+     
+     <div class="gabblincaption">
+      <h1>Celebrate The True You.</h1>
+     </div>
+
+   </div>
+   
+   <% end %> 
+  
+   <div class="container-fluid" style="margin-top: 3%; margin-bottom: 3%">
+    
+    <h4 class="lighttext" style="text-align: left">Trending</h4>
+    
+    <div class="columns">
+     <div id="postfeed"> 
+      <%= render :partial => 'shared/post', collection: @posts %>
+     </div>
+    </div>
+
+    <div class="col-sm-6 col-sm-offset-3" style="margin-top: 3%; text-align: center">
+    <%= paginate @posts %>
+    </div>
+
+   </div>
+
+<%= render :partial => 'shared/footer' %>

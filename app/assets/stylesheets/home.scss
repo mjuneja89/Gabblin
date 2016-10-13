@@ -1,0 +1,109 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.gabblinarea
+{
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 30rem;
+    color: #fff;
+    background-size: cover;
+}
+
+@media only screen and (max-width: 767px) {
+	.gabblinarea
+	{
+	  height: 15rem;
+	  margin-top: 3%;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.gabblinarea
+	{
+	  margin-top: 4%;
+	}
+}
+
+.gabblinimage
+{
+	transition: opacity .4s;
+	position: absolute;
+	top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(asset-path("unagi.jpg"));
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+.gabblinimage1
+{
+	transition: opacity .4s;
+	position: absolute;
+	top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(asset-path("artwork.jpg"));
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+.gabblinimage2
+{
+	transition: opacity .4s;
+	position: absolute;
+	top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(asset-path("moon.jpg"));
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+
+
+figure
+{
+	margin: 0;
+}
+
+.gabblincaption
+{
+    webkit-transform: translateY(-50%); 
+ 	transform: translateY(-50%);
+    position: relative;
+    top: 50%;
+    left: 1rem;
+    max-width: calc(100% - 1.25em);
+    color: white;
+}
+
+.gabblincaption>h1
+{
+	font-size: 30px;
+}
+
+@media only screen and (max-width: 767px) {
+	.gabblincaption>h1
+	{
+	  font-size: 26px;
+	}
+}
+
+
+@media only screen and (max-width: 500px) {
+	.gabblincaption>h1
+	{
+	  font-size: 22px;
+	}
+}
+

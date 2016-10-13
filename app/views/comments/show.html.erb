@@ -1,0 +1,148 @@
+<% content_for :head do %>
+<meta name="title" content="View Replies">
+<meta name="description" content="<%= @comment.body %>">   
+<title>View Responses</title>
+<% end %>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+var farzi = $('#falseresponse');
+var asli = $('#responseform');
+
+farzi.click(function(event){
+farzi.hide();
+asli.show();
+});
+});
+
+</script> 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-72599891-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+  
+$(".responsebtn").click(function(){
+  $(".responsebtn").hide();
+  $("#progressresponsebtn").show(); 
+});
+
+});
+
+</script>
+  
+  <%= render :partial => 'shared/navbar' %>
+  
+  <% if !current_user %>
+  <%= render :partial => 'shared/navbarsupport' %>    
+  <% end %>
+
+
+  <div class="container-fluid" style="margin-top: 3%">
+
+      <div class="row">
+      
+      <div class="col-sm-8 col-sm-offset-2 col-xs-12">
+
+        <% if !@comment.parent.present? %>
+
+        <div class="col-sm-3 col-xs-6" id="backtopost">
+           
+           <%= link_to community_post_path(@comment.post.community, @comment.post), :class => "btn postbtn1" do %>
+            Back to Post
+           <% end %>
+
+        </div>
+
+        <% else %>
+        
+        <div class="col-xs-12">
+
+        <%= render :partial => "parent", locals: {parent: @comment.parent} %>
+
+        </div>
+
+        <% end %>
+
+      </div>   
+
+
+      </div>
+     
+      <div class="row" style="margin-top: 3%">
+      
+      <div class="col-sm-8 col-sm-offset-2 col-xs-12">
+      
+      <!-- Comment Starts -->
+
+        <div id="commentarea">
+                
+        <%= render :partial => "comment", locals: {comment: @comment} %>
+         
+        </div>
+      
+      <!-- Comment Ends -->
+
+      </div> 
+
+     </div> 
+
+    <% if current_user %> 
+      
+     <div class="row">
+      
+      <div class="col-sm-8 col-sm-offset-2">
+
+      <!-- Reply Form Starts -->
+         
+         <div style="padding-left: 15px; padding-top: 3%">
+         <%= render :partial => "shared/user", locals: { user: current_user } %>  
+         </div>
+
+         <%= render :partial => "shared/responseform" %> 
+
+      <!-- Reply Form Ends -->
+      
+      </div>  
+
+      </div>
+
+      <% end %> 
+
+     <div class="row">
+      
+      <div class="col-sm-8 col-sm-offset-2 col-xs-12">
+      
+      <!-- Replies Start -->
+
+        <div id="replyarea">
+                
+        <%= render :partial => "shared/comment", collection: @responses %>
+         
+        </div>
+
+        <div class="col-sm-6 col-sm-offset-3" style="text-align: center; margin-top: 3%">
+         
+         <%= paginate @responses %> 
+
+        </div>
+      
+      <!-- Replies End -->
+
+      </div> 
+
+     </div> 
+
+  </div> 
+  

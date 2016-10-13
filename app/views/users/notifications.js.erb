@@ -1,0 +1,6 @@
+$('#notificationfeed').append('<%= escape_javascript(render(:partial => "shared/notification", collection: @notifications)).html_safe %>');
+<% if @notifications.last_page? %>
+$('.pagination').hide();
+<% else %>
+$('.pagination').replaceWith('<%= escape_javascript(paginate @notifications).html_safe %>');
+<% end %>

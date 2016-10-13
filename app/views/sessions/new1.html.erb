@@ -1,0 +1,72 @@
+
+<head> 
+     
+<title>Sign In || Gateway to the best communities!</title>
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+$(".submitbtn").click(function(){
+  $(".submitbtn").hide();
+  $("#progressbtn").show(); 
+});
+
+});
+
+</script>
+
+</head>
+
+<body style="background-color: #545454">
+
+<%= render :partial => 'shared/navbarsignin' %>
+
+<div class="container-fluid">
+
+<div class="row tagline">
+
+<div class="col-sm-6 col-sm-offset-3" style="text-align: center">
+
+<h3 class="tagtext" style="color: white">Sign In with your new Password</h3>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="container-fluid">
+
+<div class="row">
+  
+  <div class="col-sm-6 col-sm-offset-3" style="text-align: center; padding-top: 4%" id="signupbtn">
+
+   <% flash.each do |key, value| %>
+      <div class="errorbox1"><%= value %></div>
+   <% end %> 
+   
+   <%= form_for(:session, url: signin_path) do |f| %>
+     
+     <%= f.email_field :email, :placeholder => "Enter your email", :class => "signupinput" %>
+
+     <%= f.password_field :password, :placeholder => "Enter your Password", :class => "signupinput" %>
+     
+     <%= f.submit "Sign In", :class => "signupbtn submitbtn" %>
+
+     <div id="progressbtn">
+           <button class="signupbtn"><i class="fa fa-circle-o-notch fa-spin fa-fw"></i></button>
+     </div>
+
+   <% end %>
+
+  </div>
+
+</div>
+
+</div>
+
+<%= render :partial => 'shared/footersign' %>
+
+</body>

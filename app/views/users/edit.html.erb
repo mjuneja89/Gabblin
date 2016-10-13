@@ -1,0 +1,94 @@
+
+<head>
+  
+    <meta name="title" content="<%= @user.username %>">
+  
+<title>Edit <%= @user.username %> | Gabblin</title>
+
+<script type="text/javascript">
+ 
+ function pickfile() {
+  
+  $("#tobeclicked").click();
+ 
+ };
+
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+    var preview = $(".cpicbox img");
+
+    $("#tobeclicked").change(function(event){
+       var input = $(event.currentTarget);
+       var file = input[0].files[0];
+       var reader = new FileReader();
+       reader.onload = function(e){
+           image_base64 = e.target.result;
+           preview.attr("src", image_base64);
+       };
+       reader.readAsDataURL(file);
+    });   
+});
+</script>
+
+</head>
+
+<body>
+
+<%= render 'shared/navbar' %>
+
+<!-- User Information Starts -->
+
+<div class="container-fluid" style="margin-top: 1%">
+   
+  <div class="row">
+
+   <div class="col-sm-6 col-sm-offset-3" style="margin-top: 2%">
+     
+     <div class="col-sm-4">
+        
+       <div class="cpicbox"> 
+         
+         <%= image_tag @user.avatar, :class => "fitcpic" %>
+         
+       </div>
+     
+     </div>
+
+     <div class="col-sm-8 userstuff">
+
+       <div id="avatarbtn">
+       <button class="btn btn-link editbtn1" style="margin-bottom: 4%" onclick="pickfile();">Change Avatar</button>
+       </div>
+
+      <div class="row">
+       <%= render :partial => 'shared/editerror' %>
+      </div>
+
+       <h3 style="margin-bottom: 4%">Your Profile</h3>
+       <p style="margin-bottom: 4%; color: rgba(0,0,0,.6)">Your email id is private and is not visible to anyone except you</p>
+
+       <%= form_for(@user) do |f| %>
+       
+       <%= f.text_field :username, :class => "editinput" %>
+
+       <%= f.email_field :email, :class => "editinput" %>
+       
+       <%= f.text_field :oneliner, :placeholder => "Write a line about yourself", :class => "editinput" %>
+
+       <%= f.password_field :password, :placeholder => "Set a new password", :class => "editinput" %>
+
+       <%= f.file_field :avatar, :id => "tobeclicked" %>
+       
+       <%= f.submit "Change", :class => "editbtn1" %>
+
+       <% end %>
+
+     </div> 
+
+   </div>
+
+
+</body>

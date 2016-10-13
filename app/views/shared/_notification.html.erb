@@ -1,0 +1,30 @@
+<div class="notificationbox">
+      
+    <div class="notificationbody row">
+     
+     <div class="col-xs-10" id="notificationlinks">    
+     
+     <% if notification.category == "comment" %>
+     <%= link_to community_post_path(notification.post.community, notification.post) do %>  
+      <p>@<%= notification.sender.username %> has responded to your post.</p>
+     <% end %> 
+     <% elsif notification.category == "response" %>
+     <%= link_to comment_path(notification.comment) do %>  
+      <p>@<%= notification.sender.username %> has responded to your thought.</p>
+     <% end %> 
+     <% else %>
+     <%= link_to user_path(notification.receiver) do %>
+      <p>You have a new fan!</p> 
+     <% end %>  
+     <% end %>
+     
+     </div>
+
+     <div class="col-xs-2 notificationago">
+       <p class="lighttext" style="text-align: center"><%= time_ago_in_words(notification.created_at) %></p>
+      </div>
+              
+   </div>
+
+</div>
+

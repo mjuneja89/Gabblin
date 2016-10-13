@@ -1,0 +1,6 @@
+$('#allcommunities').append('<%= escape_javascript(render(:partial => "shared/community", collection: @communities)).html_safe %>');
+<% if @communities.last_page? %>
+$('.pagination').hide();
+<% else %>
+$('.pagination').replaceWith('<%= escape_javascript(paginate @communities).html_safe %>');
+<% end %>

@@ -1,0 +1,815 @@
+/*
+
+ *= require_self
+ *= require_tree .
+
+ */
+
+
+@import "bootstrap";
+@import "jquery-ui";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/css?family=Paytone+One);
+@import url(https://fonts.googleapis.com/css?family=EB+Garamond);
+@import 'https://fonts.googleapis.com/css?family=Roboto';
+*
+{
+  font-family: 'Roboto', sans-serif;   	
+}
+
+body 
+{
+  overflow-y: scroll;
+  height: 100%;
+}
+
+html
+{
+  height: 100%;
+}
+
+.Footer
+{  
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    height: 1.875rem;
+    padding: 0 .625rem;
+    line-height: 1.875rem;
+    background-color: #fff;
+    color: #aaa;
+    display: block;
+}
+
+.Footersign
+{  
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    height: 1.875rem;
+    padding: 0 .625rem;
+    line-height: 1.875rem;
+    background-color: transparent;
+    color: #d3d3d3;
+    display: block;
+}
+
+
+.label, .link
+{
+    font-size: .75rem;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#FooterLinks a:link
+{
+  color: rgba(0,0,0,0.6);
+}
+
+
+#FooterLinks a:hover
+{
+  color: rgba(0,0,0,0.6);
+}
+
+
+#FooterLinks a:visited
+{
+  color: rgba(0,0,0,0.6);
+}
+
+#FooterLinks1 a:link
+{
+  color: #d3d3d3;
+}
+
+
+#FooterLinks1 a:hover
+{
+  color: #d3d3d3;
+}
+
+
+#FooterLinks1 a:visited
+{
+  color: #d3d3d3;
+}
+
+
+#gabblin
+{
+	font-family: 'Pacifico', cursive;
+	font-size: 24pt;
+}
+
+#gabblin1
+{
+  font-family: 'Pacifico', cursive;
+  font-size: 24pt;
+}
+
+#gabblin2
+{
+  font-family: 'Pacifico', cursive;
+  font-size: 24pt;
+  color: #d3d3d3;  
+}
+
+#gabblin3
+{
+  font-family: 'Pacifico', cursive;
+  font-size: 24pt;
+  color: #d3d3d3;  
+}
+
+@media only screen and (min-width: 330px) {
+    #gabblin1
+    {
+      display: none;
+    }
+
+     #gabblin3
+    {
+      display: none;
+    }
+
+}
+
+@media only screen and (max-width: 330px) {
+    #gabblin
+    {
+      display: none;
+    }
+
+     #gabblin2
+    {
+      display: none;
+    }
+
+}
+
+
+
+#lightbtn
+{
+  border-radius: 0px;
+  color: black;
+  border: 2px solid black;
+}
+
+#darkbtn
+{
+  border-radius: 0px;
+  background-color: black;
+  color: white;
+  border-color: transparent;
+  display: none;
+}
+
+#darkbtn2
+{
+  border-radius: 0px;
+  background-color: #373a3c;
+  color: white;
+  border-color: transparent;
+}
+
+.lightbtn
+{
+  border-radius: 0px;
+  color: black;
+  border: 2px solid black;
+  width: 50%;
+}
+
+.darkbtn
+{
+  border-radius: 0px;
+  background-color: black;
+  color: white;
+  border-color: transparent;
+  width: 50%;
+}
+
+
+#navbtn a:hover
+{
+  background-color: black;
+  color: white;
+}
+
+.lighticon1
+{
+  -webkit-text-stroke: 3px white;
+  color: #aaa;
+}
+
+.lighticon2
+{  
+  -webkit-text-stroke: 0.5px white;
+  color: #aaa;
+}
+
+.navavatar
+{
+  margin-right: 40px;
+}
+
+.brand
+{
+  margin-left: 40px;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .navavatar
+    {
+      margin-right: 20px; 
+    }
+
+    .brand
+    {
+      margin-left: 20px; 
+    }
+}
+
+.navbtn
+{
+  border-radius: 0px;
+  background-color: black;
+  color: white;
+  border-color: transparent;  
+}
+
+#home-btn
+{
+  border-radius: 0px;
+  color: #D3D3D3;
+  border: 2px solid #D3D3D3;
+  margin-left: 2%;
+}
+
+#home-btn1
+{
+  border-radius: 0px;
+  color: black;
+  border: 2px solid black;
+  margin-left: 2%;
+}
+
+#home-btn2
+{
+  border-radius: 0px;
+  background-color: black;
+  color: white; 	
+}  
+
+.navbuttons
+    {
+      margin-top: 0.7%; 
+    }
+
+
+@media only screen and (max-width: 768px) {
+    .navbuttons
+    {
+      margin-top: 2.4%; 
+    }
+}
+
+
+@media only screen and (max-width: 500px) {
+    #home-btn1
+    {
+      display: none; 
+    }
+    #home-btn2
+    {
+      display: none; 
+    }
+  
+}
+
+
+@media only screen and (min-width: 500px) {
+    .signbuttons
+    {
+      display: none; 
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    
+    .signbuttons 
+    {
+      margin-bottom: 6%;
+    }
+
+}
+
+#home-btn3
+{
+  border-radius: 0px;
+  color: black;
+  border: 2px solid black;
+  margin-left: 2%;
+  font-size: 13pt;
+  width: 80%;
+}
+
+#home-btn4
+{
+  border-radius: 0px;
+  background-color: black;
+  color: white;
+  font-size: 13pt;
+  width: 80%;
+} 
+
+@media only screen and (max-width: 340px) {
+    #home-btn3
+    {
+      font-size: 11pt; 
+    }
+    #home-btn4
+    {
+      font-size: 11pt; 
+    }
+  
+}
+
+.errorbox
+{
+  width: 50%;
+  background-color: #ffebe8;
+  color: #dd3c1c;
+  padding: 5px;
+  border: 2px solid transparent;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3%;
+}
+
+.errorbox1
+{
+  width: 50%;
+  background-color: #ffebe8;
+  color: #dd3c1c;
+  padding: 5px;
+  border: 2px solid transparent;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.5%;
+}
+
+
+.errorbox2
+{
+  width: 50%;
+  background-color: #ffebe8;
+  color: #dd3c1c;
+  padding: 5px;
+  border: 2px solid transparent;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.5%;
+}
+
+
+@media only screen and (max-width: 500px) {
+    .errorbox
+    {
+      width: 80%; 
+    }
+    
+    .errorbox1
+    {
+      width: 80%; 
+    }
+
+
+    .errorbox2
+    {
+      width: 90%; 
+    }
+
+    #home-btn3
+    {
+      width: 100%; 
+    }
+    #home-btn4
+    {
+      width: 100%; 
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+
+ #chooseavatar
+    {
+      margin-top: 5%; 
+    }
+
+}
+
+#search a:link
+{
+  color: black;
+}
+
+
+#search a:hover
+{
+  color: #ccc;
+}
+
+
+#search a:visited
+{
+  color: black;
+}
+
+.postcard
+{
+  position: relative;
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  border-radius: 3px;
+}
+
+@media all and (max-width: 400px) {
+  
+  .postcard
+  {
+    margin-top: .35rem;
+    margin-bottom: .35rem;
+  }
+
+}
+
+.columns
+{
+  
+  -webkit-column-count: 4;
+  -moz-column-count: 4;
+  column-count: 4;
+  column-gap: 1.25rem;
+
+  .postcard
+  {
+    display: inline-block;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  
+  .columns
+  { 
+    -webkit-column-count: 3;
+   -moz-column-count: 3;
+    column-count: 3;
+  }
+
+}
+
+
+@media only screen and (max-width: 768px) {
+  
+  .columns
+  {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+  }
+
+}
+
+
+@media only screen and (max-width: 500px) {
+  
+  .columns
+  {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+  }
+
+}
+
+.postsavatar
+{
+  width: 2rem;
+  height: 2rem;
+  border: solid 1px transparent;
+}
+
+.fitpostavatar
+{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%; 
+}
+
+.navavatar
+{
+  width: 2.25rem;
+  height: 2.25rem;
+  border: solid 1px transparent; 
+  cursor: pointer;
+}
+
+
+.fitnavavatar
+{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%; 
+}
+
+@media only screen and (max-width: 500px) {
+ .postsavatar
+ { 
+   width: 1.875rem;
+  }
+  .fitpostavatar
+  {
+   width: 1.875rem;
+   height: 1.875rem;
+     
+  }
+}
+
+#postavatar
+{
+  text-align: center;
+  vertical-align: middle;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#postavatar a:link
+{
+  color: transparent;
+}
+
+
+#postavatar a:hover
+{
+  color: transparent;
+}
+
+#postavatar a:visited
+{
+  color: transparent;
+}
+
+#postuser
+{
+  text-align:left;
+}
+
+
+#postuser a:link
+{
+  color: #aaa;
+}
+
+#postuser a:hover
+{
+  color: #aaa;
+}
+
+#postuser a:visited
+{
+  color: #aaa;
+}
+
+.imagebox
+{
+  height: 300px;
+}
+
+.photobox
+{
+  height: 300px;
+}
+
+.fitimage
+{
+  width: 100%;
+  height: 100%;
+}
+
+.titlebox
+{
+  word-wrap: break-word;
+  padding: 5px;
+}
+
+
+.heartbtn
+{
+  color: black;
+  background-color: transparent;
+}
+
+.unheartbtn
+{
+  color: #fb3958;
+}
+
+.heartcount
+{
+  color: #aaa;
+}
+
+#heartlink a:link
+{
+  color: black;
+}
+
+
+#heartlink a:hover
+{
+  color: black;
+}
+
+
+#heartlink a:visited
+{
+  color: black;
+}
+
+.joinbtn
+{
+  margin-right: 40px;
+}
+
+@media only screen and (max-width: 768px) {
+
+.joinbtn
+{
+  margin-right: 20px;
+}
+
+
+}
+
+#notification a:link
+{
+  color: black;
+}
+
+
+#notification a:hover
+{
+  color: black;
+}
+
+
+#notification a:visited
+{
+  color: black;
+}
+
+#notificationlinks a:link
+{
+  color: rgba(0,0,0,0.6);
+}
+
+#notificationlinks a:hover
+{
+  color: rgba(0,0,0,0.6);
+}
+
+#notificationlinks a:visited
+{
+  color: rgba(0,0,0,0.6);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.navdropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content
+{
+  display: none;
+  position: absolute;
+  min-width: 120px;
+  top: 24px;
+  right: 1px;
+  z-index: 1;
+  background-color: white;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+}
+
+.navdropdown-content
+{
+  display: none;
+  position: absolute;
+  width: 120px;
+  right: 1px;
+  top: 35px;
+  z-index: 1;
+  background-color: white;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+}
+
+.navarrow
+{
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid white;
+}
+
+.dropdown-content a {
+ padding: 7px;
+ display: block;
+}
+
+.navdropdown-content a {
+ padding: 7px;
+ display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.navdropdown:hover .navdropdown-content {
+    display: block;
+}
+
+.searchdark
+{
+  border-radius: 0px;
+  background-color: black;
+  color: white;
+  border: 2px solid black;
+}
+
+.searchlight
+{
+  border-radius: 0px;
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+}
+
+.lighttext
+{
+  color: rgba(0,0,0,.6)
+}
+
+input[type="text"], input[type="password"], textarea, select { 
+    outline: none;
+}
+
+@media only screen and (max-width: 500px)
+{
+
+#notificationlinks a>p
+{
+  font-size: 14px; 
+}
+
+.notificationago>p
+{
+  font-size: 14px; 
+}
+
+.postshowuser a>h4
+{
+  font-size: 1.25rem;
+}
+
+.postago>h4
+{
+  font-size: 1.25rem;
+}
+
+}  
+

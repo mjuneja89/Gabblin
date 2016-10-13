@@ -1,0 +1,169 @@
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#commentform
+{
+	display: none;
+}
+
+#responseform
+{
+  display: none;
+}
+
+.commentinput
+{
+  height: 3.75rem;
+  padding: 0 .625rem;
+  border-radius: none;
+  border-color: black;
+  width: 100%;
+  padding-top: 1%;
+  margin-bottom: 2%;
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  font-family: 'EB Garamond', serif;
+  font-size: 22px; 
+  color: rgba(0,0,0,0.6);
+}
+
+.commentdescriptioninput
+{
+  height: 8rem;
+  padding: .625rem;
+  border-radius: none;
+  border-color: black;
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  width: 100%;
+  padding-top: 1%;
+  margin-bottom: 2%;
+  font-family: 'EB Garamond', serif;
+  font-size: 22px; 
+  color: rgba(0,0,0,0.6);
+}
+
+.commentbox
+{
+   width: 100%;
+   background-color: white;
+   border: 1px solid rgba(0, 0, 0, 0.09);
+   margin-top: 1.25rem;
+   margin-bottom: 1.25rem;
+}
+
+.parentbox
+{
+   width: 100%;
+   background-color: white;
+   border: 1px solid rgba(0, 0, 0, 0.09);
+   margin-top: 1.25rem;
+   margin-bottom: 1.25rem;
+}
+
+
+.commentbody
+{
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+}
+
+.parentbody
+{
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  position: relative;
+}
+
+.commentpadding
+{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.commenttop
+{
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px; 
+}
+
+.commentbottom
+{
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;   
+}
+
+#toreplies
+{
+  color: #aaa;
+}
+
+#toreplies a:link
+{
+  color: #aaa;
+}
+
+
+#toreplies a:hover
+{
+  color: #aaa;
+}
+
+
+#toreplies a:visited
+{
+  color: #aaa;
+}
+
+
+.commentdropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.commentdropdown-content
+{
+  display: none;
+  position: absolute;
+  min-width: 120px;
+  top: 24px;
+  right: 1px;
+  z-index: 1;
+  background-color: white;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+}
+
+.commentdropdown-content a {
+ padding: 7px;
+ display: block;
+}
+
+.commentdropdown:hover .commentdropdown-content {
+    display: block;
+}
+
+#progresscommentbtn
+{
+  display: none;
+}
+
+#progressresponsebtn
+{
+  display: none;
+}
+
+.parent
+{
+  position:absolute; 
+  width:100%;
+  height:100%;
+  top:0;
+  left: 0;
+  z-index: 1;
+}
+

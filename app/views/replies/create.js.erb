@@ -1,0 +1,5 @@
+$('#replyarea').html("<%= escape_javascript(render(:partial => 'shared/reply', collection: @replies)).html_safe %>");
+$('#replyform').hide();
+$('#falsereply').show();
+$('#progressreplybtn').hide();
+$('.replybtn').show();

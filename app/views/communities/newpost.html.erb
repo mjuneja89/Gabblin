@@ -1,0 +1,33 @@
+
+<head>
+	
+<title>Choose Community</title>
+
+</head>
+
+<body>
+
+<%= render :partial => 'shared/navbarnewpost' %>
+  
+<div class="container-fluid" style="margin-top: 3%">
+  <div class="row" style="text-align: center">
+     <h3>Where To Post?</h3>
+     <h5 class="lighttext">Choose A Community Fit For Your Post.</h5>  
+  </div>
+</div>
+
+<div class="container-fluid" style="margin-top: 3%">
+
+   <div class="row" id="allcommunities" style="text-align: center">    
+    <%= render :partial => "/shared/community", collection: @communities %>
+   </div>
+  
+  <div class="row" style="text-align: center">
+   <div class="col-sm-6 col-sm-offset-3" style="margin-top: 3%; style: text-align: center">
+      <%= paginate @communities %>
+   </div>
+  </div>
+  
+</div>
+ 
+</body>

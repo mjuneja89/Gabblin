@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <meta http-equiv="Content-Type" content="text/html"; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon href="Add Image">
+  <meta name="keywords" content= " gabblin, gabblin.com, best communities, be yourself, community, stuff, heart, comment, reply, forums, indian discussion, discussion, debate, opinions, interests, ideas ">
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+  
+  <% if content_for?(:head) %>
+    <%= yield(:head) %>
+  <% end %>
+
+  <!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+
+<!-- [if lt IE9]>
+    <script src="https://os.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js">
+    </script><![endif]--> 
+
+</head>
+
+<body>
+
+<%= yield %> 
+
+</body>
+</html>

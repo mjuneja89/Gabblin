@@ -1,0 +1,158 @@
+<div class="postcard">
+    
+    <!-- Top of the card starts -->
+
+    <div class="top">
+    		
+    	<div class="userinfo">	
+      
+        <div id="postsavatar">
+    		   
+          	   <%= link_to user_path(post.user) do %>
+                   
+                    <div class="postsavatar">
+                        
+                        <%= image_tag post.user.avatar_url, :class => "fitpostavatar" %>
+
+                    </div>  
+
+          	   <% end %>
+
+    		</div>
+    		
+    		<div id="postuser">
+               
+               <%= link_to user_path(post.user) do %>
+                        
+                       <p class="postusername">@<%= post.user.username %></p> 
+               
+               <% end %> 
+    		  	
+    		</div>
+
+        </div>
+    		
+    		<div class="timeinfo"  id="postago">
+          
+         <div class="ago"> 
+    			<p style="text-align: center"><%= time_ago_in_words(post.created_at) %></p>
+         </div>
+              		
+    		</div>
+
+    </div>
+    
+    <!-- Top of the card ends -->
+
+    <!-- Card Photo starts -->
+    
+    <% if post.image.present? %>
+
+    <div class="imagebox">
+
+      <%= link_to community_post_path(post.community, post) do %>
+         
+      <%= image_tag post.image, :class => "fitimage" %>
+
+      <% end %>
+
+    </div>
+
+    <% end %>
+
+
+    <% if post.linkphoto.present? %>
+
+    <div class="photobox">
+
+      <%= link_to community_post_path(post.community, post) do %>
+         
+      <%= image_tag post.linkphoto, :class => "fitimage" %>
+
+      <% end %>
+
+    </div>
+
+    <% end %>
+
+    <!-- Card Photo ends -->
+
+    <!-- Post Title Starts -->
+    
+    <div class="titlebox" id="titlebox">
+      
+      <div id="titlelink">
+      
+      <%= link_to community_post_path(post.community, post), :id => "fontgaramond" do %>
+      
+      <h4><%= post.title %></h4>
+
+      <% end %>
+
+      </div>
+
+    </div> 
+
+
+    <!-- Post Title Ends -->
+
+    <!-- Bottom of the card starts -->
+
+     <div class="bottom">
+           
+           <div class="heartfunctionality">
+                               
+             <div class="heartbox" id="heartbox_<%= post.id %>">
+
+               <% if current_user %>
+
+                    <% if post.hearted?(current_user) %>
+                       
+                       <%= render partial: "shared/hearted", locals: {c: post.community, p: post} %>
+                    
+                    <% else %>
+
+                       <%= render partial: "shared/unhearted", locals: {c: post.community, p: post} %>
+                    
+                    <% end %>
+
+                <% else %>
+                     
+                     <div id="heartlink">
+
+                     <%= link_to signin_path do %>
+                           
+                           <i class="fa fa-heart-o hearttext"></i>
+
+                     <% end %>
+
+                     </div>     
+             
+                <% end %>
+
+             </div>
+
+             <div class="heartcount" id="heartcount_<%= post.id %>">
+                
+                <%= render partial: "shared/heartlength", locals: {c: post.community, p: post} %>
+                                  
+             </div>  
+           
+           </div>
+
+           <div class="communitydetails">
+               
+               <div class="communityname" id="communitydetails"> 
+                <%= link_to community_path(post.community) do %>
+                  <p style="text-align: center"><%= post.community.name %></p> 
+                <% end %> 
+              </div>
+
+           </div>
+
+     </div>
+
+
+    <!-- Bottom of the card ends -->    
+
+</div>

@@ -1,0 +1,37 @@
+
+<head>
+  
+<title>Build your own Feed</title>
+
+</head>
+
+<body style="background-color: white">
+
+<%= render :partial => 'shared/navbarformalities' %>
+
+<div class="container-fluid" style="margin-top: 3%">
+  <div class="row" style="text-align: center">
+     <h3>Follow Communities</h3>
+     <h5 class="lighttext">What interests you?</h5>  
+  </div>
+</div>
+
+<div class="container-fluid" style="margin-top: 3%">
+  
+  <div class="row" style="text-align: center">
+     
+     <%= render :partial => 'community', collection: @communities %>
+    
+  </div>
+
+<div class="row" style="margin-top: 5%"> 
+  <div class="col-sm-6 col-sm-offset-3" style="text-align: center">
+      <%= link_to feed_path, :class => "btn postbtn" do %>
+        Done
+      <% end %>
+  </div> 
+</div>  
+
+</div>
+
+</body>

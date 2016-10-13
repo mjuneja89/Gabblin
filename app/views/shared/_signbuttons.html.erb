@@ -1,0 +1,29 @@
+
+  <div class="signbuttons">
+    <div class="container-fluid" style="margin-top: 1%">
+    <% if current_user %>
+      <div class="row">
+        <div class="col-xs-6">
+            <a class="btn-link btn" id="home-btn3" href="#">trending</a>
+        </div>
+        <div class="col-xs-6">
+          <%= link_to newpost_path, :class => "btn btn-link", :id => "home-btn4" do %>
+               submit stuff
+          <% end %>
+        </div>
+      </div>
+
+    <% else %>
+
+      <div class="row">
+        <div class="col-xs-6">
+            <a class="btn-link btn" id="home-btn3" href="/signin">sign in</a>
+        </div>
+        <div class="col-xs-6">
+          <a class="btn-link btn" id="home-btn4" href="/join">sign up</a>
+        </div>
+      </div>
+  
+    <% end %> 
+    </div>
+  </div>

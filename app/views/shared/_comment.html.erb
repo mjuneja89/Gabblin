@@ -1,0 +1,132 @@
+<div id="comment_<%= comment.id %>">
+
+<div class="commentbox">
+
+ <!-- Comment Top Starts -->
+   
+   <div class="row commenttop">
+   
+   <div class="col-xs-8">
+
+   <%= render :partial => "comments/user", locals: {user: comment.user} %>
+   
+   </div>
+
+   <div class="col-xs-4" style="text-align: center; color: #aaa">
+    
+    <p><%= time_ago_in_words(comment.created_at) %></p>
+  
+   </div>
+  
+  </div>
+
+  <!-- Comment Top Ends -->
+
+  <!-- Comment Body Starts -->
+    
+    <div class="commentbody">
+       
+       <h4><%= simple_format(linkconverter.call(comment.body).html_safe, :style => "font-family: 'EB Garamond', serif") %></h4>
+
+    </div>
+
+  <!-- Comment Body Ends -->
+
+  <!-- Comment Bottom Starts -->
+   
+   <div class="row commentbottom" style="text-align: center">
+
+    <div class="col-xs-4">
+
+     <div class="heartbox" id="commentheartbox_<%= comment.id %>">
+
+       <% if current_user %>
+         
+         <% if comment.hearted? current_user %>
+             
+           <%= render partial: "shared/heartedc", locals: {c: comment} %>
+               
+         <% else %>
+           
+           <%= render partial: "shared/unheartedc", locals: {c: comment} %> 
+         
+         <% end %>
+
+      <% else %>
+        
+          <div id="heartlink">
+
+              <%= link_to signin_path do %>
+                           
+                  <i class="fa fa-heart-o"></i>
+
+              <% end %>
+
+          </div>     
+
+      <% end %>
+     
+     </div>             
+    
+      <div class="heartcount" id="commentheartcount_<%= comment.id %>">
+                
+         <%= render partial: "shared/commentheartlength", locals: {c: comment} %>
+                                  
+      </div>    
+
+    </div>
+    
+
+    <div class="col-xs-6">
+      
+      <div id="toreplies" style="text-align:center"> 
+       
+       <%= link_to comment_path(comment) do %>
+         <p><%= comment.responses.size %> Thoughts</p>
+       <% end %>
+      
+      </div> 
+    </div>
+
+    <% if current_user %>
+
+     <div class="col-xs-2">
+
+        <div class="commentdropdown" style="text-align: center" id="postoptions">     
+            <a href="#" class="commentdropbtn"><i class="fa fa-ellipsis-h"></i></a>
+              <div id="gabblincommentdropdown" class="commentdropdown-content">
+                <% if current_user == comment.user || current_user.role == "admin" %>
+                  <%= link_to edit_comment_path(comment), :remote => true do %>
+                    <i class="fa fa-pencil"></i>&nbsp&nbsp&nbspEdit
+                  <% end %>
+                  <%= link_to comment_path(comment), :method => :delete, data: {confirm: "Are you sure?"} do %>
+                  <i class="fa fa-trash-o"></i>&nbsp&nbsp&nbspDelete
+                  <% end %>
+                <% end %>
+                  <a href="#"><i class="fa fa-ban"></i>&nbsp&nbsp&nbspReport</a>
+              </div>   
+        </div>
+            
+    </div>
+
+    <% end %>
+
+   </div> 
+
+  <!-- Comment Bottom Ends -->
+
+</div>
+
+</div>
+
+<% if comment.responses.any? %>
+
+<% comment.responses.order(hearts_count: :desc).limit(3).each_with_index do |response, i| %>
+
+<div class="response_<%= comment.id %>" style="margin-top: -1.25rem">
+  <%= render :partial => "shared/comment", locals: {comment: response} %>
+</div>
+
+<% end %>
+
+<% end %>

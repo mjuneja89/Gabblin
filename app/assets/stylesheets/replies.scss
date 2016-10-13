@@ -1,0 +1,86 @@
+// Place all the styles related to the replies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#replyform
+{
+	display: none;
+}
+
+.replyinput
+{
+  height: 3.75rem;
+  padding: 0 .625rem;
+  border-radius: none;
+  border-color: black;
+  width: 100%;
+  padding-top: 1%;
+  margin-bottom: 2%;
+  border: dashed 1px;
+  font-family: 'EB Garamond', serif;
+  font-size: 22px; 
+  color: rgba(0,0,0,0.6);
+}
+
+.replydescriptioninput
+{
+  height: 8rem;
+  padding: .625rem;
+  border-radius: none;
+  border-color: black;
+  border: dashed 1px;
+  width: 100%;
+  padding-top: 1%;
+  margin-bottom: 2%;
+  font-family: 'EB Garamond', serif;
+  font-size: 22px; 
+  color: rgba(0,0,0,0.6);
+}
+
+
+.mentiondescriptioninput
+{
+  height: 8rem;
+  padding: .625rem;
+  border-radius: none;
+  border-color: black;
+  border: dashed 1px;
+  width: 100%;
+  padding-top: 1%;
+  margin-bottom: 2%;
+  font-family: 'EB Garamond', serif;
+  font-size: 22px; 
+  color: rgba(0,0,0,0.6);
+}
+
+.replydropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.replydropdown-content
+{
+  display: none;
+  position: absolute;
+  min-width: 120px;
+  top: 24px;
+  right: 1px;
+  z-index: 1;
+  background-color: white;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+}
+
+.replydropdown-content a {
+ padding: 7px;
+ display: block;
+}
+
+.replydropdown:hover .replydropdown-content {
+    display: block;
+}
+
+#progressreplybtn
+{
+  display: none;
+}

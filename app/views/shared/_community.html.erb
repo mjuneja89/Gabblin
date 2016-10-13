@@ -1,0 +1,19 @@
+<div class="col-sm-3 col-xs-6" style="margin-top: 3%">
+
+<div class="communitybox">
+
+   <div class="communitypicbox">
+   <%= link_to new_community_post_path(community) do %>  
+     <%= image_tag community.cpic_url, :class => "fitcommunitypic" %>
+   <% end %>
+   </div>
+
+   <div id="cnamebox">
+    <%= link_to new_community_post_path(community) do %>
+    <p><%= community.name %></p>
+    <% end %>
+   </div>
+
+</div>
+
+</div>

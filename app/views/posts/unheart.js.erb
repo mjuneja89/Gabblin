@@ -1,0 +1,2 @@
+$('#heartbox_<%= @post.id %>').html("<%= escape_javascript(render(:partial => 'shared/unhearted', locals: {c: @community, p: @post})).html_safe %>")
+$('#heartcount_<%= @post.id %>').html("<%= escape_javascript(render(:partial => 'shared/heartlength', locals: {c: @community, p: @post})).html_safe %>")

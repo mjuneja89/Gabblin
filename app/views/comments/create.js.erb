@@ -1,0 +1,5 @@
+$('#commentarea').html("<%= escape_javascript(render(:partial => 'shared/comment', collection: @comments)).html_safe %>");
+$('#commentform').hide();
+$('#falsecomment').show();
+$('#progresscommentbtn').hide();
+$('.commentbtn').show();

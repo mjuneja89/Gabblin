@@ -1,0 +1,284 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.tagtext
+{
+  padding-top: 12%;	
+}
+
+.userinline>h4
+{
+  font-size: 1.25rem;
+}
+
+.signupinput
+{
+  height: 3.75rem;
+  padding: 0 .625rem;
+  background-color: #d8d8d8;
+  border-radius: none;
+  width: 50%;
+  margin-top: 2%;
+}
+
+.editinput
+{
+  height: 3.75rem;
+  padding: 0 .625rem;
+  background-color: #d8d8d8;
+  border-radius: none;
+  width: 80%;
+  margin-top: 2%;
+}
+
+
+.editbtn1
+{ 
+  color: white;
+  background-color: black;
+  border-radius: none;
+  width: 80%; 
+  margin-top: 2%;
+  height: 3.75rem;
+  border-color: transparent;
+}
+
+.signupbtn
+{ 
+  color: white;
+  background-color: black;
+  border-radius: none;
+  width: 50%; 
+  margin-top: 2%;
+  height: 3.75rem;
+  border-color: transparent;
+}
+
+#signupbtn a:hover
+{
+  background-color: black;  
+}
+
+#progressbtn
+{
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+
+.signupinput{
+
+width: 80%;
+
+}
+
+.editinput{
+
+width: 90%;
+
+}
+
+.editbtn1{
+
+width: 90%;
+
+}
+
+.signupbtn
+{
+  width: 80%;
+}
+
+
+}
+
+@media only screen and (max-width: 500px) {
+
+.signupinput{
+
+width: 90%;
+
+}
+
+.editinput{
+
+width: 100%;
+
+}
+
+
+.editbtn1{
+
+width: 100%;
+
+}
+
+.signupbtn
+{
+  width: 90%;
+}
+
+}
+
+#avatarbox
+{
+  height: 300px;
+  border: 1px dashed black;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+@media only screen and (max-width: 500px) {
+
+#avatarbox
+{
+ width: 60%;
+ height: 200px;
+
+}
+
+}
+
+#tobeclicked
+{
+  display: none;
+}
+
+#avatarbtn a:hover
+{
+  background-color: black;
+  color: white;
+  text-decoration: none;
+}
+
+#avatarbtn button:hover
+{
+  background-color: black;
+  color: white;
+  text-decoration: none;
+}
+
+.fitimg
+{
+  width: 100%;
+  height: 100%;
+}
+
+.inlineinfo
+{
+  display: table;
+  width: 100%;
+  margin-top: 3%;
+}
+
+.posts
+{
+  float: left;
+}
+
+.fans
+{
+  float: left;
+  margin-left: 10px;
+}
+
+.points
+{
+  float: left;
+  margin-left: 10px;
+}
+
+.editbtn
+{
+  border-radius: 20px;
+  background-color: transparent;
+  border: 1px solid black;
+  color: black;
+}
+
+.fanbtn
+{
+  border-radius: 20px;
+  color: white; 
+  background-color: black;
+  border: 1px solid black;
+}
+
+
+.unfanbtn
+{
+  border-radius: 20px;
+  background-color: transparent;
+  border: 1px solid black;
+  color: black; 
+}
+
+#fan a:hover
+{
+  color: white;
+  text-decoration: underline;
+}
+
+
+#unfan a:hover
+{
+  color: black;
+  text-decoration: underline;
+}
+
+.noposts
+{
+  margin-top: 3%;
+}
+
+@media only screen and (max-width: 767px) {
+
+.userstuff
+{
+  margin-top: 5%;
+}
+
+.noposts
+{
+  margin-top: 5%;
+}
+
+}
+
+.notificationbox
+{
+   width: 100%;
+   background-color: white;
+   border: 1px solid #edeff1;
+   margin-top: .75rem;
+   margin-bottom: .75rem;
+}
+
+.notificationbody
+{
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px; 
+}
+
+
+#username a:link
+{
+  color: #aaa;
+}
+
+
+#username a:visited
+{
+  color: #aaa;
+}
+
+
+#username a:hover
+{
+  color: #aaa;
+}

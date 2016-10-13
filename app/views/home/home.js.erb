@@ -1,0 +1,6 @@
+$('#postfeed').append('<%= escape_javascript(render(:partial => "shared/post", collection: @posts)).html_safe %>');
+<% if @posts.last_page? %>
+$('.pagination').hide();
+<% else %>
+$('.pagination').replaceWith('<%= escape_javascript(paginate @posts).html_safe %>');
+<% end %>

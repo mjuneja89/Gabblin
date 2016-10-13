@@ -1,0 +1,65 @@
+<% content_for :head do %>
+
+<title>Gabblin: Site Rules</title>
+<meta property="og:site_name" content="gabblin">
+<meta property="og:title" content="Gabblin: Site Rules">
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-72599891-1', 'auto');
+  ga('send', 'pageview');
+</script>
+ 
+<% end %> 
+  
+<%= render 'shared/navbar' %>
+
+<div class="container-fluid" style="margin-top: 3%">
+  
+ <div class="row" style="text-align: center"> 
+  <%= render :partial => 'shared/rulesclicked' %>
+ </div>
+  
+      <div class="row" style="text-align: center; margin-top: 3%">
+            <div class="col-xs-12">
+                <h3 class="encyclopedia">Content Policy</h3> 
+            </div>
+      </div>
+       <div class="row questionrow" style="margin-top: 2%">
+          <div class="col-xs-12">
+            <p class="encyclopedia">'Gabblin' is a platform that encourages you to be yourself. The site is expected to be a collection of communities, representing varied ideas and thoughts. We want the content to be funny, helpful and engaging at the same time. While we want you all to express yourselves freely, let us not insult anyone or be disrespectful towards a section of the society. We are here to spread happiness and compassion, will you be a part of our mission?</p>
+          </div>
+        </div>
+        <div class="row questionrow" style="margin-top: 2%">
+          <div class="col-xs-12">
+            <h4><u class="encyclopedia">Prohibited Content</u></h4>
+            <p class="encyclopedia">We will remove posted content, if it contains any of the following:
+              <ul style="list-style-type:disc">
+                <li class="encyclopedia">Racist comments</li>
+                <li class="encyclopedia">Denigrating comments about the disabled or the unfortunate</li>
+                <li class="encyclopedia">Personal or confidential information</li>
+                <li class="encyclopedia">Advertisements</li>
+                <li class="encyclopedia">Pornographic Content</li>
+                <li class="encyclopedia">Threatening or bullying comments</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+        <div class="row questionrow" style="margin-top: 2%">
+          <div class="col-xs-12">
+            <h4><u class="encyclopedia">Enforcement</u></h4>
+            <p class="encyclopedia">We will take the following steps if you violate the content policy:
+              <ul style="list-style-type:disc">
+                <li class="encyclopedia">Delete your post and warn you</li>
+                <li class="encyclopedia">Ban you for 30 days if your consecutive posts get flagged</li>
+                <li class="encyclopedia">Remove your account from the site if you continue to violate the content policy after warnings and bans</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+</div>  
+ 

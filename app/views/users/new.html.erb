@@ -1,0 +1,96 @@
+
+<% content_for :head do %>
+  
+<title>Join Gabblin!</title>
+
+<meta name="description" content= "'Gabblin' is a collection of the best communities on the internet. Connect with like minded people and share your opinions, interests and ideas.">
+<meta property="og:site_name" content="gabblin">
+<meta property="og:title" content="Join Gabblin!">
+<meta property="og:url" content="http://www.gabblin.com/join" />
+<meta property="og:image" content="<%= image_url('gabblin.jpg') %>">
+<meta property="og:image:width" content="300">
+<meta property="og:image:height" content="300">
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+$(".submitbtn").click(function(){
+  $(".submitbtn").hide();
+  $("#progressbtn").show(); 
+});
+
+});
+
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-72599891-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<% end %>
+
+<body style="background-color: #545454">
+
+<%= render :partial => 'shared/navbarsignup' %>
+
+<div class="container-fluid">
+
+<div class="row tagline">
+
+<div class="col-sm-6 col-sm-offset-3" style="text-align: center">
+
+<h3 class="tagtext" style="color: white">Join us. Be yourself.</h3>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3" id="signuperrors">
+      <%= render :partial => 'shared/signuperror' %>
+    </div>
+  </div>
+</div>  
+
+
+<div class="container-fluid">
+
+<div class="row">
+  
+  <div class="col-sm-6 col-sm-offset-3" style="text-align: center; padding-top: 4%" id="signupbtn">
+   
+   <%= form_for(@user, url: users_path) do |f| %>
+     
+     <%= f.email_field :email, :placeholder => "Enter your email", :class => "signupinput" %>
+
+     <%= f.text_field :username, :placeholder => "Choose a display name", :class => "signupinput" %>
+
+     <%= f.password_field :password, :placeholder => "Set a Password", :class => "signupinput" %>
+     
+     <%= f.submit "Sign Up", :class => "signupbtn submitbtn" %>
+
+     <div id="progressbtn">
+           <button class="signupbtn"><i class="fa fa-circle-o-notch fa-spin fa-fw"></i></button>
+     </div>
+
+   <% end %>
+
+  </div>
+
+</div>
+
+</div>
+
+<%= render :partial => 'shared/footersign' %>
+
+</body>

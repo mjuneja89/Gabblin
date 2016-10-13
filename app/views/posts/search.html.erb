@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+    <meta name="title" content="Gabblin: Just Be Yourself">
+    <meta name="description" content="'Gabblin' encourages you to be yourself. Connect with people and share your thoughts without inhibitions.">   
+    <title>Gabblin: Search</title>
+</head>
+
+
+<body> 
+  
+<%= render 'shared/navbar' %>  
+
+ <div class="container-fluid" style="margin-top: 3%">
+ 
+ <div class="col-sm-8 col-sm-offset-2" style="text-align: center">
+  <h3 class="lighttext">Search For Stuff</h3>
+
+ <%= render :partial => "shared/searchposts" %>
+
+  <%= form_tag searchposts_path, :method => :get, :role => "search" do %>
+    <%= text_field_tag :search, params[:search], :class => "searchinput", :placeholder => "Search Posts" %>
+  <% end %>
+ 
+ </div>
+
+ </div>
+
+ <div class="container-fluid" style="margin-top: 3%">
+ 	<% if @posts.present? %>
+ 	<div class="columns">
+    <div id="postarea">
+      <%= render :partial => "shared/post", collection: @posts %>
+    </div>
+  </div>
+  <% end %>
+ </div>
+  
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  datetime:
+    distance_in_words:
+      about_x_months:
+        one: 1mo
+        other: "%{count}mo"
+      about_x_hours:
+        one: 1h
+        other: "%{count}h"
+      less_than_x_seconds:
+        one: Now
+      less_than_x_minutes:
+        one: Now  
+      x_months:
+        one: 1mo
+        other: "%{count}mo"
+      x_days:
+        one: 1d
+        other: "%{count}d"
+      x_minutes:
+        one: 1m
+        other: "%{count}m"
+      x_seconds:
+        one: 1s
+        other: "%{count}s"
+  prompts:
+      month: mo
+      day: d
+      hour: h
+      minute: m
+      second: s
+  breadcrumbs:
+    application:
+      root: "Index"
+    pages:
+      pages: "Pages"
+  helpers:
+    actions: "Actions"
+    links:
+      back: "Back"
+      cancel: "Cancel"
+      confirm: "Are you sure?"
+      destroy: "Delete"
+      new: "New"
+      edit: "Edit"
+    titles:
+      edit: "Edit %{model}"
+      save: "Save %{model}"
+      new: "New %{model}"
+      delete: "Delete %{model}"

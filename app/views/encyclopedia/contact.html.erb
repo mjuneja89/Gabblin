@@ -1,0 +1,38 @@
+<% content_for :head do %>
+
+<title>Gabblin: Contact Us</title>
+<meta property="og:site_name" content="gabblin">
+<meta property="og:title" content="Gabblin: Contact Us">
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-72599891-1', 'auto');
+  ga('send', 'pageview');
+</script>
+ 
+<% end %>
+   
+<%= render 'shared/navbar' %>
+
+<div class="container-fluid" style="margin-top: 3%">
+  
+ <div class="row" style="text-align: center"> 
+  <%= render :partial => 'shared/contactclicked' %>
+ </div>
+  
+      <div class="row" style="text-align: center; margin-top: 3%">
+            <div class="col-xs-12">
+                <h3 class="encyclopedia">Share your ideas with us</h3> 
+            </div>
+      </div>
+      <div class="row questionrow" style="margin-top: 2%">
+          <div class="col-xs-12">
+            <h4 class="encyclopedia">Contact us anytime</h4>
+            <p class="encyclopedia">In case you have any suggestions for us, we'd love to hear them from you. We are also welcoming requests for new communities on our platform. Send us a mail to mj@gabblin.com or aparna@gabblin.com.</p>
+          </div>
+      </div>
+</div>  

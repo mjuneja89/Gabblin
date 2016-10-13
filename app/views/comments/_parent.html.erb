@@ -1,0 +1,18 @@
+<div class="parentbox">
+  
+  <%= link_to comment_path(parent) do %>
+  <span class="parent"></span>
+  <% end %>
+
+  <!-- Comment Body Starts -->
+    
+    <div class="parentbody">
+      
+       <h5><%= simple_format(linkconverter.call(parent.body).html_safe, :style => "font-family: 'EB Garamond', serif") %></h5>
+       
+    </div>
+
+  <!-- Comment Body Ends -->
+  
+</div>
+

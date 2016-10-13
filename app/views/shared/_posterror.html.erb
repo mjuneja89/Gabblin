@@ -1,0 +1,8 @@
+   <% if @post.errors.any? %> 
+    <div class="errorbox">
+    	 <p>Oops! Pity we couldn't create your post. Please rectify this error(s).</p> 
+        <% @post.errors.full_messages.each do |msg| %>
+          <p><%= msg %></p>
+        <% end %>	
+    </div>
+   <% end %> 

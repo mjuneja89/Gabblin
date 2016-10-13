@@ -1,0 +1,22 @@
+<div class="userinline">
+
+           
+         <div class="postavatar">
+           
+           <%= link_to user_path(user) do %> 
+           <%= image_tag user.avatar_url, :class => "fitavatar" %>
+           <% end %> 
+       
+         </div>
+       
+ 
+        <div class="username postshowuser" id="username">
+         
+         <%= link_to user_path(user) do %>
+         <h4 style="text-align: left; color: #aaa">@<%= user.username %></h4>
+         <% end %>
+        
+        </div>
+
+</div>
+

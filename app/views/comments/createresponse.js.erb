@@ -1,0 +1,5 @@
+$('#replyarea').html("<%= escape_javascript(render(:partial => 'comment', collection: @responses)).html_safe %>");
+$('#responseform').hide();
+$('#falseresponse').show();
+$('#progressresponsebtn').hide();
+$('.responsebtn').show();

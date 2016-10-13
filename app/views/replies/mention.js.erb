@@ -1,0 +1,3 @@
+$("#mentionarea_<%= @reply.id %>").show();
+$("#mentionarea_<%= @reply.id %>").html("<%= escape_javascript(render(:partial => 'shared/mentionform')).html_safe %>");
+$("#mentionarea_<%= @reply.id %> textarea").val("@<%= @user.username %>");

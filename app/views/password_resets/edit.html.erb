@@ -1,0 +1,58 @@
+
+<head>
+  
+<title>Reset your password</title>
+
+</head>
+
+<body style="background-color: #545454">
+
+<%= render :partial => 'shared/navbarsignin' %>
+
+<div class="container-fluid">
+
+<div class="row tagline">
+
+<div class="col-sm-6 col-sm-offset-3" style="text-align: center">
+
+<h3 class="tagtext" style="color: white">choose a new password</h3>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3" id="signuperrors">
+      <%= render :partial => 'shared/signuperror' %>
+    </div>
+  </div>
+</div>  
+
+<div class="container-fluid">
+
+<div class="row">
+  
+  <div class="col-sm-6 col-sm-offset-3" style="text-align: center; padding-top: 4%" id="signupbtn">
+    
+    <%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
+     
+     <%= f.password_field :password, :placeholder => "enter a new password", :class => "signupinput" %>
+ 
+     <%= f.submit "reset password", :class => "signupbtn submitbtn" %>
+
+   <% end %>
+
+  </div>
+
+</div>
+
+</div>
+</div>
+
+<%= render :partial => 'shared/footersign' %>
+
+</body>

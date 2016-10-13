@@ -1,0 +1,37 @@
+<div class="col-sm-3 col-xs-6" style="margin-top: 3%">
+
+<div class="communitybox">
+
+   <div class="communitypicbox">
+    <%= link_to community_path(community) do %>  
+     <%= image_tag community.cpic_url, :class => "fitcommunitypic" %>
+    <% end %> 
+   </div>
+
+   <div id="cnamebox">
+    <%= link_to community_path(community) do %>
+     <p style="margin-bottom: 0px"><%= community.name %></p>
+    <% end %> 
+   </div>
+
+   <div id="profilebtn" style="margin-bottom: 3%; text-align: center">
+      
+      <div id="followarea_<%= community.id %>">
+
+           <% if current_user.hasfollowed?(community) %>
+          
+                <%= render :partial => 'shared/unfollowbtn', locals: {c: community} %>
+
+            <% else %>
+
+                <%= render :partial => 'shared/followbtn', locals: {c: community} %> 
+
+            <% end %>
+               
+        </div> 
+
+   </div>
+
+</div>
+
+</div>

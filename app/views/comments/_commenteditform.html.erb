@@ -1,0 +1,19 @@
+   <div class="container-fluid" style="margin-top: 3%">
+
+      <div id="commenteditform">
+         
+         <%= form_for(@comment, url: comment_path(@comment), method: :patch, remote: true) do |f| %>
+             
+             <%= f.text_area :body, :placeholder => "Start Typing", :class => "commentdescriptioninput" %>
+
+             <div class="col-sm-3 col-xs-6">
+              
+              <%= f.submit "Update", :class => "postbtn", :style => "margin-left: -15px" %> 
+
+             </div>
+
+         <% end %>
+
+      </div> 
+
+   </div>

@@ -1,0 +1,19 @@
+   <div class="container-fluid" style="margin-top: 3%">
+
+      <div id="replyeditform">
+         
+         <%= form_for(@reply, url: comment_reply_path(@reply.comment, @reply), method: :patch, remote: true) do |f| %>
+             
+             <%= f.text_area :body, :placeholder => "start typing", :class => "commentdescriptioninput" %>
+
+             <div class="col-sm-3 col-xs-6">
+              
+              <%= f.submit "update", :class => "postbtn", :style => "margin-left: -15px" %> 
+
+             </div>
+
+         <% end %>
+
+      </div> 
+
+   </div>

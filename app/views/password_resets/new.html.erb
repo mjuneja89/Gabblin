@@ -1,0 +1,52 @@
+
+<head>
+  
+<title>Reset your password</title>
+
+</head>
+
+<body style="background-color: #545454">
+
+<%= render :partial => 'shared/navbarsignin' %>
+
+<div class="container-fluid">
+
+<div class="row tagline">
+
+<div class="col-sm-6 col-sm-offset-3" style="text-align: center">
+
+<h3 class="tagtext" style="color: white">enter your email</h3>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="container-fluid">
+
+<div class="row">
+  
+  <div class="col-sm-6 col-sm-offset-3" style="text-align: center; padding-top: 4%" id="signupbtn">
+   
+   <div id="ajaxarea">
+   </div>
+
+   <%= form_for(:password_reset, url: password_resets_path, remote: true) do |f| %>
+     
+     <%= f.email_field :email, :placeholder => "enter your email", :class => "signupinput" %>
+ 
+     <%= f.submit "reset password", :class => "signupbtn submitbtn" %>
+
+   <% end %>
+
+  </div>
+
+</div>
+
+</div>
+</div>
+
+<%= render :partial => 'shared/footersign' %>
+
+</body>

@@ -1,0 +1,87 @@
+<nav class="navbar navbar-light" style="background-color: transparent;">
+  
+  <a class="navbar-brand brand" id="gabblin" href="/">Gabblin</a>
+  <a class="navbar-brand brand" id="gabblin1" href="/">G</a>
+  
+ <% if current_user %> 
+ 
+ <ul class="nav navbar-nav navbuttons pull-xs-right">
+
+   <li class="nav-item hidden-sm-down" id="navbtn">
+     
+     <%= link_to newpost_path, :class => "navbtn btn", :style => "margin-right: 40px" do %>
+       Submit Stuff
+     <% end %>
+
+   </li>
+   
+   <li class="nav-item" id="search">
+
+   	<%= link_to searchposts_path, :style => "margin-right: 10px" do %>
+      
+      <i class="fa fa-search fa-2x lighticon1"></i>
+
+    <% end %>
+   
+   </li>
+
+   <li class="nav-item" id="notification">
+
+     <% if @proxies.any? %>
+
+     <%= link_to user_notifications_path(current_user), :style => "margin-right: 10px" do %>
+
+     <i class="fa fa-envelope-o fa-2x lighticon2" style="color: red"></i>
+
+     <% end %>
+
+     <% else %>
+
+     <%= link_to user_notifications_path(current_user), :style => "margin-right: 10px" do %>
+
+     <i class="fa fa-envelope-o fa-2x lighticon2"></i>
+
+     <% end %>
+
+     <% end %>
+   
+   </li>
+   
+ <li class="nav-item" id="search">
+     
+      <div class="navavatar navdropdown" id="postoptions">
+       <a href="#" class="navdropbtn"> 
+       <%= image_tag current_user.avatar_url, :class => "fitnavavatar pull-left", :style => "display:block" %>
+       </a>
+        <div id="navgabblindropdown" class="navdropdown-content">
+          <%= link_to user_path(current_user) do %>
+            <i class="fa fa-user"></i>&nbsp&nbsp&nbspProfile
+          <% end %>
+          <%= link_to edit_user_path(current_user) do %>
+            <i class="fa fa-cog"></i>&nbsp&nbsp&nbspSettings
+          <% end %>
+          <%= link_to signout_path, method: :delete do %>
+            <i class="fa fa-sign-out"></i>&nbsp&nbsp&nbspLogout
+          <% end %>
+        </div> 
+      </div>
+      
+    </div>
+  
+
+   </li>
+  
+     
+ </ul>
+
+  
+<% else %>
+  
+  <div class="navbuttons">
+    <a class="btn pull-sm-right" id="home-btn1" href="/signin" style="margin-right: 40px">Sign In</a>
+    <a class="btn pull-sm-right" id="home-btn2" href="/join" style="margin-right: 10px">Sign Up</a>
+  </div>
+
+<% end %>
+
+</nav>  

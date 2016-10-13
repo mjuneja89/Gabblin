@@ -1,0 +1,29 @@
+   <div style="margin-top: 3%">
+      
+      <div id="falseresponse">
+      <input placeholder="What do you think?" class="commentinput">
+      </div>
+      
+      <div id="responseform">
+         
+         <%= form_for(Comment.new, url: comment_createresponse_path(@comment), remote: true) do |f| %>
+
+             <%= f.hidden_field :parent_id, value: @comment.id %> 
+            
+             <%= f.text_area :body, :placeholder => "Start Typing", :class => "commentdescriptioninput" %>
+
+             <div class="col-sm-3 col-xs-6">
+              
+              <%= f.submit "Submit", :class => "postbtn responsebtn", :style => "margin-left: -15px" %>
+
+              <div id="progressresponsebtn">
+                <button class="postbtn"><i class="fa fa-circle-o-notch fa-spin fa-fw"></i></button>
+              </div> 
+
+             </div>
+
+         <% end %>
+
+      </div> 
+
+   </div>

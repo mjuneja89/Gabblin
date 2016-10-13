@@ -1,0 +1,30 @@
+ <div class="signbuttons">
+    <div class="container-fluid" style="margin-top: 1%">
+    <% if current_user %>
+      <div class="row">
+        <div class="col-xs-6">
+           <%= link_to user_buildfeed_path(current_user), :id => "home-btn3", :class => "btn" do %> 
+            Communities 
+           <% end %>
+        </div>
+        <div class="col-xs-6">
+            <%= link_to newpost_path, :id => "home-btn4", :class => "btn" do %>
+              Submit Stuff
+            <% end %>
+        </div>
+      </div>
+
+    <% else %>
+
+      <div class="row">
+        <div class="col-xs-6">
+            <a class="btn" id="home-btn3" href="/signin">Sign In</a>
+        </div>
+        <div class="col-xs-6">
+          <a class="btn" id="home-btn4" href="/join">Sign Up</a>
+        </div>
+      </div>
+  
+    <% end %> 
+    </div>
+  </div>

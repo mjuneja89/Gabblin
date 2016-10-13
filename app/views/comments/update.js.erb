@@ -1,0 +1,5 @@
+<% if @comment.parent.present? %>
+$('#replyarea').html("<%= escape_javascript(render(:partial => 'comment', collection: @responses)).html_safe %>");
+<% else %>
+$('#commentarea').html("<%= escape_javascript(render(:partial => 'shared/comment', collection: @comments)).html_safe %>");
+<% end %>

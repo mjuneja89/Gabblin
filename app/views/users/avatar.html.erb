@@ -1,0 +1,107 @@
+
+<head>
+  
+<title>Choose an Avatar!</title>
+
+
+<script type="text/javascript">
+ 
+ $(document).ready(
+
+  function pickfile() {
+  
+  $("#tobeclicked").click();
+ 
+ });
+
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+    var preview = $("#avatarbox img");
+    var upload = $('#darkbtn')
+    var pseudo = $('#darkbtn2')
+    var image = $('.fitimg')
+
+    $("#tobeclicked").change(function(event){
+       var input = $(event.currentTarget);
+       var file = input[0].files[0];
+       var reader = new FileReader();
+       reader.onload = function(e){
+           image_base64 = e.target.result;
+           preview.attr("src", image_base64);
+       };
+       reader.readAsDataURL(file);
+       image.show();
+       upload.show();
+       pseudo.hide();
+    });   
+});
+</script>
+
+</head>
+
+<body style="background-color: white">
+
+<%= render :partial => 'shared/navbarformalities' %>
+
+<div class="container-fluid" style="margin-top: 3%">
+  <div class="row" style="text-align: center">
+     <h3>Pick an Avatar that defines you.</h3> 
+  </div>
+</div>
+
+
+
+<!-- Avatar Area Starts -->
+
+<div class="container-fluid" style="margin-top: 5%">
+  
+  <div class="row">
+    <div class="col-sm-6">
+      
+      <div id="avatarbox">
+         <img class="fitimg" style="display: none" />
+      </div>
+    
+    </div>
+    
+    <div class="col-sm-6">
+             
+       <%= form_for(@user, url: user_updateavatar_path(@user)) do |f| %>
+          
+          <%= f.file_field :avatar, :id => "tobeclicked" %>
+          
+          <div id="avatarbtn" style="text-align: center">
+            <a id="chooseavatar" class="btn btn-default darkbtn" onclick="pickfile();" style="height: 3rem">Pick Avatar</a>   
+          </div>
+           
+    </div>
+  
+  </div>
+</div>
+
+
+<!-- Avatar Area Ends -->
+
+
+<div class="container-fluid" style="margin-top: 5%">
+
+  <div class="row" style="text-align: center">
+    <div class="col-xs-6">
+      <a href="/feed" class="btn btn-default" id="lightbtn">Skip</a> 
+    </div>
+
+    <div class="col-xs-6">
+      <a href="#" class="btn btn-default" id="darkbtn2">Continue</a>
+      <%= f.submit "continue", :class => "btn", :id => "darkbtn" %> 
+    </div> 
+  
+  </div>
+
+</div>
+  
+<% end %>
+
+</body>

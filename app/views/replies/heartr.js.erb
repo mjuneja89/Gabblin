@@ -1,0 +1,2 @@
+$('#replyheartbox_<%= @reply.id %>').html("<%= escape_javascript(render(:partial => 'shared/heartedr', locals: {c: @comment, r: @reply})).html_safe %>");
+$('#replyheartcount_<%= @reply.id %>').html("<%= escape_javascript(render(:partial => 'shared/replyheartlength', locals: {c: @comment, r: @reply})).html_safe %>");

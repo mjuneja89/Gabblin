@@ -1,0 +1,1 @@
+$('#followarea_<%= @community.id %>').html("<%= escape_javascript(render(:partial => 'shared/followbtn', locals: {c: @community})).html_safe %>")

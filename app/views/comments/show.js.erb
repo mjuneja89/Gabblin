@@ -1,0 +1,6 @@
+$('#replyarea').append('<%= escape_javascript(render(:partial => "comment", collection: @responses)).html_safe %>');
+<% if @responses.last_page? %>
+$('.pagination').hide();
+<% else %>
+$('.pagination').replaceWith('<%= escape_javascript(paginate @replies).html_safe %>');
+<% end %>

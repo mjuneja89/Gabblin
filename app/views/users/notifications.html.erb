@@ -1,0 +1,46 @@
+
+<head>
+  
+
+<title>My Notifications</title>
+
+</head>
+
+<body>
+
+<%= render 'shared/navbarnotifications' %>
+
+<div class="container-fluid" style="margin-top: 1%">
+   
+  <div class="row">
+
+     <div class="col-sm-8 col-sm-offset-2" style="text-align: center; margin-top: 3%">
+       
+       <h3 style="margin-bottom: 3%">My Notifications</h3>
+      
+       <% if @notifications.any? %>
+        
+        <div id="notificationfeed">
+        <%= render :partial => "shared/notification", collection: @notifications  %>
+        </div>
+
+       <div class="col-sm-6 col-sm-offset-3" style="margin-top: 3%; text-align: center">
+    
+        <%= paginate @notifications %>
+    
+       </div>
+       
+       <% else %>
+         
+        <h4>You don't have any notifications yet.</h4>
+       
+       <% end %>
+
+     </div>    
+     
+
+  </div>
+
+</div>     
+  
+</body>

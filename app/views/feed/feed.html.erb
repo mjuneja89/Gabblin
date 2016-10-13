@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="title" content="Gabblin: Feed">
+    <meta name="description" content="Feed brings the best from Gabblin to you">   
+    <title>Gabblin: Feed for @<%= current_user.username %></title>
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+$('.lightbtn').click(function(){
+
+$('.followhide').hide();
+
+});
+
+});
+
+</script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-72599891-1', 'auto');
+  ga('send', 'pageview');
+</script>    
+
+</head>
+
+
+<body> 
+   
+   <%= render :partial => "/shared/navbar" %>  
+   <%= render :partial => "/shared/navbarsupport" %>
+
+<div class="container-fluid" style="margin-top: 3%">
+   
+   <% if !@relationships.any? %>
+   
+   <div class="row hidden-sm-down followhide" style="margin-bottom: 3%">
+    
+   <div class="col-sm-4">
+     
+     <div class="followbox">
+      <h4>You are not following any communities</h4>
+      <p class="lighttext">Why don't you build a custom feed?</p>
+      <div class="row">
+      <div class="col-xs-6">  
+      <%= link_to user_buildfeed_path(current_user), :class => "btn darkbtn" do %>
+       Go    
+      <% end %> 
+      </div>
+      <div class="col-xs-6">
+        <a href="#" class="btn lightbtn">Later</a>
+      </div>
+      </div>
+     </div>
+
+   </div>  
+
+   </div> 
+
+   <% end %>
+
+   
+   <% if @posts.any? %>
+
+   <div class="columns">
+    
+    <div id="postfeed"> 
+     <%= render :partial => "shared/post", collection: @posts %>
+    </div>
+
+   </div>
+
+  <div class="col-sm-6 col-sm-offset-3" style="margin-top: 3%; text-align: center">
+    <%= paginate @posts %>
+  </div>
+
+   <% end %>
+
+</div>
+
+
+<%= render :partial => 'shared/footer' %>
+  
+</body>
+
+</html>

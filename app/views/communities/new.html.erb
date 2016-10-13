@@ -1,0 +1,41 @@
+
+<head>
+  
+<title>New Community: Admin View</title>
+
+</head>
+
+<body>
+
+<%= render :partial => 'shared/navbarplain' %>
+
+<div class="container-fluid" style="margin-top: 5%">
+  
+  <div class="row" style="text-align: center">
+    
+    <h3>New Community</h3>
+
+  
+  <%= form_for(Community.new, url: communities_path) do |f| %>
+  
+  <div class="col-sm-6 col-sm-offset-3">
+
+  <%= f.text_field :name, :placeholder => "Enter Name", :class => "signupinput" %>
+  <%= f.text_area :description, :placeholder => "Enter Description", :class => "signupinput", :style => "height: 8rem" %>
+  <%= f.file_field :cpic, :id => "tobeclicked" %>
+  
+  <div id="avatarbtn" style="text-align: center">
+      <a id="chooseavatar" class="btn btn-link darkbtn" style="height: 3rem">Browse</a>   
+  </div>
+
+  <%= f.submit "Submit", :class => "signupbtn submitbtn" %>
+
+  </div>
+  
+  <% end %>
+  
+  </div>
+
+</div>
+
+</body>
