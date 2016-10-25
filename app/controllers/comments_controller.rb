@@ -38,6 +38,10 @@ class CommentsController < ApplicationController
   current_user.increment!(:points, 2)
   current_user.checklevel
 
+  if @comment.post.present?
+  	@comment.post.update_attribute(:updated_at, Time.now)
+  end
+
   unless current_user == @comment.user  
     @notification = Notification.create!(:sender_id => current_user.id, :receiver_id => @comment.user.id, :comment_id => @comment.id, :category => "response", :unread => true)
     SendResponseJob.set(wait: 40.seconds).perform_later(@comment, current_user, @comment.user)   
