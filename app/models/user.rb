@@ -49,18 +49,62 @@ def subscribefeature
    update_attribute(:unsubscribe_token, SecureRandom.hex(8))
 end
 
-def checklevel
- if self.points > 100 && self.points < 500
-    update_attribute(:level, "Great Gabblin")
- elsif self.points > 499 && self.points < 2000
-    update_attribute(:level, "Grand Gabblin")
- elsif self.points > 1999 && self.points < 10000
-    update_attribute(:level, "Seasoned Gabblin")     
- elsif self.points > 9999
-    update_attribute(:level, "Veteran Gabblin")
- else
-    update_attribute(:level, "Fresh Gabblin")    
+def postcreatecurrency
+    self.decrement_counter(:coin_count, 5)
+    self.increment_counter(:spent_coins, 5)
 end
+
+def postgivecurrency
+    self.decrement_counter(:coin_count, 2)
+    self.increment_counter(:spent_coins, 2)
+end
+
+def postreceivecurrency
+    self.increment_counter(:coin_count, 2)
+end
+
+def commentcreatecurrency
+    self.decrement_counter(:coin_count, 2)
+    self.increment_counter(:spent_coins, 2)
+end
+
+def commentgivecurrency
+    self.decrement_counter(:coin_count, 1)
+    self.increment_counter(:spent_coins, 1)
+end
+
+def commentreceivecurrency
+    self.increment_counter(:coin_count, 1)
+end
+
+def checklevel
+ if self.spent_coins > 10 && self.spent_coins < 25
+    update_attribute(:level, "Level 2")
+ end   
+ if self.spent_coins > 25 && self.spent_coins < 55
+    update_attribute(:level, "Level 3")
+ end   
+ if self.spent_coins > 55 && self.spent_coins < 105
+    update_attribute(:level, "Level 4")
+ end        
+ if self.spent_coins > 105 && self.spent_coins < 180
+    update_attribute(:level, "Level 5")
+ end   
+ if self.spent_coins > 180 && self.spent_coins < 280
+    update_attribute(:level, "Level 6")
+ end   
+ if self.spent_coins > 280 && self.spent_coins < 430
+    update_attribute(:level, "Level 7")
+ end   
+ if self.spent_coins > 430 && self.spent_coins < 770
+    update_attribute(:level, "Level 8")
+ end   
+ if self.spent_coins > 770 && self.spent_coins < 1270
+    update_attribute(:level, "Level 9")
+ end       
+ if self.spent_coins > 1270
+    update_attribute(:level, "Level 10")    
+ end
 end 
 
 def banuser

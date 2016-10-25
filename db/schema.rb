@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161025111507) do
+ActiveRecord::Schema.define(version: 20161025172249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -145,11 +145,11 @@ ActiveRecord::Schema.define(version: 20161025111507) do
     t.string   "username"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",                                       null: false
-    t.datetime "updated_at",                                       null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
     t.string   "role"
     t.integer  "points",                 default: 0
-    t.string   "level",                  default: "Fresh Gabblin"
+    t.string   "level",                  default: "Level 1"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.integer  "waitinglist_id"
@@ -162,6 +162,8 @@ ActiveRecord::Schema.define(version: 20161025111507) do
     t.boolean  "activated",              default: false
     t.string   "unsubscribe_token"
     t.integer  "coin_count",             default: 30
+    t.integer  "spent_coins",            default: 0
+    t.integer  "coinstobeclaimed",       default: 0
   end
 
   add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree

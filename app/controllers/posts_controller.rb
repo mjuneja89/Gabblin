@@ -19,27 +19,33 @@ class PostsController < ApplicationController
  end  
  
  def create
-  @community = Community.friendly.find(params[:community_id])
-  
-  @post = current_user.posts.build(post_params) do |post|
+  if current_user.coin_count > 5
     
-    post.community = @community
+    @community = Community.friendly.find(params[:community_id])
   
-  end
+    @post = current_user.posts.build(post_params) do |post|
+    
+      post.community = @community
+  
+    end
    
-   if @post.link.present?
-     @post.fetchstuff
-   end
+    if @post.link.present?
+      @post.fetchstuff
+    end
 
-   current_user.increment!(:points, 20)
-   current_user.checklevel 
+    current_user.postcreatecurrency
+    current_user.checklevel 
    
-   if @post.save
-    redirect_to @post.community
-   else
+    if @post.save
+      redirect_to @post.community
+    else
       render 'new'
-   end
- end
+    end
+  
+  else 
+    redirect_to insufficientcoins_path
+  end   
+end
 
  def show
   @community = Community.friendly.find(params[:community_id])
@@ -72,6 +78,19 @@ def destroy
   Post.destroy(@post)
   redirect_to '/feed'
 end
+
+#Give Coins Starts
+
+def givecoins
+  @post = Post.friendly.find(params[:post_id])
+  @user = @post.user
+  current_user.postgivecurrency
+  current_user.checklevel
+  @user.postreceivecurrency
+  respond_to :js
+end
+
+#Give Coins Ends
 
  def heart
   @post = Post.friendly.find(params[:post_id])

@@ -5,14 +5,17 @@ class CommentsController < ApplicationController
   before_action :correctuser2, only: [:edit, :update, :destroy]
   before_action :store_return_to, only: [:show]
  
-  def create  
+  def create
+   
+   if current_user.coin_count > 1
+
     @post = Post.friendly.find(params[:post_id])
     
     @comment = current_user.comments.build(comment_params) do |comment|
       comment.post = @post
     end
     
-    current_user.increment!(:points, 2)
+    current_user.commentcreatecurrency
     current_user.checklevel
     @post.update_attribute(:updated_at, Time.now)
      
@@ -28,32 +31,44 @@ class CommentsController < ApplicationController
     else
       redirect_to @post
     end
+   
+   else
+      redirect_to insufficientcoins_path
+   end    
   end
 
  def createresponse
-  @response = current_user.comments.build(comment_params) do |response|
-    response.parent = @comment
-  end
+  
+  if current_user.coin_count > 1
 
-  current_user.increment!(:points, 2)
-  current_user.checklevel
+   @response = current_user.comments.build(comment_params) do |response|
+     response.parent = @comment
+   end
 
-  if @comment.post.present?
-  	@comment.post.update_attribute(:updated_at, Time.now)
-  end
+   current_user.commentcreatecurrency
+   current_user.checklevel
 
-  unless current_user == @comment.user  
-    @notification = Notification.create!(:sender_id => current_user.id, :receiver_id => @comment.user.id, :comment_id => @comment.id, :category => "response", :unread => true)
-    SendResponseJob.set(wait: 40.seconds).perform_later(@comment, current_user, @comment.user)   
-  end
+   if @comment.post.present?
+  	 @comment.post.update_attribute(:updated_at, Time.now)
+   end
 
-  @responses = @comment.responses.order(created_at: :desc)
+   unless current_user == @comment.user  
+     @notification = Notification.create!(:sender_id => current_user.id, :receiver_id => @comment.user.id, :comment_id => @comment.id, :category => "response", :unread => true)
+     SendResponseJob.set(wait: 40.seconds).perform_later(@comment, current_user, @comment.user)   
+   end
 
-  if @response.save
-    respond_to :js
-  else
-    redirect_to @comment
-  end
+   @responses = @comment.responses.order(created_at: :desc)
+
+   if @response.save
+     respond_to :js
+   else
+     redirect_to @comment
+   end
+
+ else
+    redirect_to insufficientcoins_path
+ end 
+ 
  end  
 
 def destroy
@@ -70,6 +85,17 @@ def destroy
    end 
 end
 
+#Give Coins Starts
+
+def givecommentcoins
+  @comment = Comment.find(params[:comment_id])
+  @user = @comment.user
+  current_user.commentgivecurrency
+  @user.commentreceivecurrency
+  respond_to :js
+end   
+   
+#Give Coins Ends
 
 #Comment Heart Functionality Starts
 
