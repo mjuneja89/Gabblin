@@ -2,7 +2,7 @@
 
       <div id="commenteditform">
          
-         <%= form_for(@comment, url: comment_path(@comment), method: :patch, remote: true) do |f| %>
+         <%= form_for(@comment, url: comment_path(@comment), method: :patch) do |f| %>
              
              <%= f.text_area :body, :placeholder => "Start Typing", :class => "commentdescriptioninput" %>
 
