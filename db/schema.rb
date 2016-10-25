@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160823113852) do
+ActiveRecord::Schema.define(version: 20161025111507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20160823113852) do
     t.datetime "updated_at",               null: false
     t.integer  "hearts_count", default: 0
     t.integer  "parent_id"
+    t.integer  "coin_count",   default: 0
   end
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
@@ -110,6 +111,7 @@ ActiveRecord::Schema.define(version: 20160823113852) do
     t.string   "slug"
     t.integer  "hearts_count",   default: 0
     t.integer  "comments_count", default: 0
+    t.integer  "coin_count",     default: 0
   end
 
   add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true, using: :btree
@@ -159,6 +161,7 @@ ActiveRecord::Schema.define(version: 20160823113852) do
     t.string   "activation_token"
     t.boolean  "activated",              default: false
     t.string   "unsubscribe_token"
+    t.integer  "coin_count",             default: 30
   end
 
   add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree

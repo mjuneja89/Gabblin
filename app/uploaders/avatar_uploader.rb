@@ -7,8 +7,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :fog
-  # storage :file
+  # storage :fog
+  storage :file
 
   process :quality => 40
 
