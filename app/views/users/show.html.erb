@@ -55,15 +55,27 @@
        
        <% end %>
        
+       <div class="coinsinfo">
+        
+       <div class="coinssack">
+       <div class="coinssackimg">
+       <%= image_tag("coinsclicked.png", :class => "fitimg") %>
+       </div>
+       </div> 
+
+       <p class="spentinfo" style="color: rgba(0,0,0,.6)"><%= @user.spent_coins %>/<%= @coinstobespent %> Coins Spent</p>       
+
+       </div>
+       
        <div class="inlineinfo">
        
-       <p class="posts" style="color: rgba(0,0,0,.6)"><%= @user.posts.size %> posts</p>
+       <p class="posts" style="color: rgba(0,0,0,.6)"><%= @user.posts.size %> Posts</p>
        
        <div id="fansize_<%= @user.id %>">
         <%= render :partial => 'shared/fanlength', locals: {u: @user} %>    
        </div>
 
-       <p class="points" style="color: rgba(0,0,0,.6)"><%= @user.points %> points</p> 
+       <p class="points" style="color: rgba(0,0,0,.6)"><%= @user.coin_count %> Coins</p> 
        
        </div>
 

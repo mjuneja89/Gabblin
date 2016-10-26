@@ -33,8 +33,7 @@ Rails.application.routes.draw do
 
   resources :communities do
     resources :posts do
-     put "heart" => "posts#heart"
-     delete "unheart" => "posts#unheart"
+     put "givecoins" => "posts#givecoins"
     end
     put 'follow' => 'communities#follow'
     delete 'unfollow' => 'communities#unfollow'
@@ -48,9 +47,8 @@ Rails.application.routes.draw do
   
   resources :comments do
     post "createresponse" => "comments#createresponse"
-    put "heartc" => "comments#heartc"
-    delete "unheartc" => "comments#unheartc"  
-  end
+    put "givecommentcoins" => "comments#givecommentcoins"
+   end
 
   get '/feed' => "feed#feed"
 

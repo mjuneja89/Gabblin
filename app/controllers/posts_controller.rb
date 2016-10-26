@@ -84,6 +84,8 @@ end
 def givecoins
   @post = Post.friendly.find(params[:post_id])
   @user = @post.user
+  Transaction.create!(giver_id: current_user.id, receivingpost_id: @post.id)
+  @post.postincrement
   current_user.postgivecurrency
   current_user.checklevel
   @user.postreceivecurrency

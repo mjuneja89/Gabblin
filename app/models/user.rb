@@ -18,7 +18,10 @@ class User < ActiveRecord::Base
     has_many :receivers, through: :notifications, class_name: "User", :foreign_key => "receiver_id"
     has_many :relationships
     has_many :favourites, through: :relationships, class_name: "Community", :foreign_key => "follower_id"
-    
+    has_many :transactions
+    has_many :receivingposts, through: :transactions, class_name: "Post", :foreign_key => "giver_id"
+    has_many :receivingcomments, through: :transactions, class_name: "Comment", :foreign_key => "giver_id"
+     
     extend FriendlyId
     friendly_id :username, use: :slugged
      
@@ -50,60 +53,73 @@ def subscribefeature
 end
 
 def postcreatecurrency
-    self.decrement_counter(:coin_count, 5)
-    self.increment_counter(:spent_coins, 5)
+    self.decrement!(:coin_count, 5)
+    self.increment!(:spent_coins, 5)
+    self.increment!(:total_spent_coins, 5)
 end
 
 def postgivecurrency
-    self.decrement_counter(:coin_count, 2)
-    self.increment_counter(:spent_coins, 2)
+    self.decrement!(:coin_count, 2)
+    self.increment!(:spent_coins, 2)    
+    self.increment!(:total_spent_coins, 5)
 end
 
 def postreceivecurrency
-    self.increment_counter(:coin_count, 2)
+    self.increment!(:coin_count, 2)
 end
 
 def commentcreatecurrency
-    self.decrement_counter(:coin_count, 2)
-    self.increment_counter(:spent_coins, 2)
+    self.decrement!(:coin_count, 2)
+    self.increment!(:spent_coins, 2)
+    self.increment!(:total_spent_coins, 2)
 end
 
 def commentgivecurrency
-    self.decrement_counter(:coin_count, 1)
-    self.increment_counter(:spent_coins, 1)
+    self.decrement!(:coin_count, 1)
+    self.increment!(:spent_coins, 1)
+    self.increment!(:total_spent_coins, 2)
 end
 
 def commentreceivecurrency
-    self.increment_counter(:coin_count, 1)
+    self.increment!(:coin_count, 1)
 end
 
 def checklevel
  if self.spent_coins > 10 && self.spent_coins < 25
     update_attribute(:level, "Level 2")
+    update_attribute(:spent_coins, 0)
  end   
  if self.spent_coins > 25 && self.spent_coins < 55
     update_attribute(:level, "Level 3")
+    update_attribute(:spent_coins, 0)
  end   
  if self.spent_coins > 55 && self.spent_coins < 105
     update_attribute(:level, "Level 4")
+    update_attribute(:spent_coins, 0)
  end        
  if self.spent_coins > 105 && self.spent_coins < 180
     update_attribute(:level, "Level 5")
+    update_attribute(:spent_coins, 0)
  end   
  if self.spent_coins > 180 && self.spent_coins < 280
     update_attribute(:level, "Level 6")
+    update_attribute(:spent_coins, 0)
  end   
  if self.spent_coins > 280 && self.spent_coins < 430
     update_attribute(:level, "Level 7")
+    update_attribute(:spent_coins, 0)
  end   
  if self.spent_coins > 430 && self.spent_coins < 770
     update_attribute(:level, "Level 8")
+    update_attribute(:spent_coins, 0)
  end   
  if self.spent_coins > 770 && self.spent_coins < 1270
     update_attribute(:level, "Level 9")
+    update_attribute(:spent_coins, 0)
  end       
  if self.spent_coins > 1270
-    update_attribute(:level, "Level 10")    
+    update_attribute(:level, "Level 10")
+    update_attribute(:spent_coins, 0)    
  end
 end 
 

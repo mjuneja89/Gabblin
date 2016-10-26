@@ -175,6 +175,33 @@ width: 100%;
   margin-top: 3%;
 }
 
+.coinsinfo
+{
+  display: table;
+  width: 100%;
+  margin-top: 3%; 
+}
+
+.spentinfo
+{
+  display: table-cell;
+  width: 80%;
+  text-align: left;
+}
+
+.coinsack
+{
+  display: table-cell;
+  width: 20%;
+}
+
+.coinssackimg
+{
+  width: 30px;
+  height: 30px;
+}
+
+
 .posts
 {
   float: left;

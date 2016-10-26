@@ -2,6 +2,8 @@ class Post < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   belongs_to :user
   belongs_to :community
+  has_many :transactions
+  has_many :givers, through: :transactions, class_name: "User", :foreign_key => "receivingpost_id"
   has_many :hearts, dependent: :destroy
   validates :title, :presence => true
   has_many :notifications, dependent: :destroy 
@@ -21,6 +23,10 @@ class Post < ActiveRecord::Base
   self.linktitle = @content.title
   self.remote_linkphoto_url = @content.images.first.src.to_s
   self.save(:validate => false)
+ end
+
+ def postincrement
+  self.increment!(:coin_count, 1)
  end
 
  def self.search(search)

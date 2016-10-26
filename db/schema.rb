@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161025172249) do
+ActiveRecord::Schema.define(version: 20161026172058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -141,6 +141,20 @@ ActiveRecord::Schema.define(version: 20161025172249) do
   add_index "replies", ["user_id", "comment_id", "created_at"], name: "index_replies_on_user_id_and_comment_id_and_created_at", using: :btree
   add_index "replies", ["user_id"], name: "index_replies_on_user_id", using: :btree
 
+  create_table "transactions", force: :cascade do |t|
+    t.integer  "giver_id"
+    t.integer  "receivingpost_id"
+    t.integer  "receivingcomment_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "transactions", ["giver_id", "receivingcomment_id"], name: "index_transactions_on_giver_id_and_receivingcomment_id", unique: true, using: :btree
+  add_index "transactions", ["giver_id", "receivingpost_id"], name: "index_transactions_on_giver_id_and_receivingpost_id", unique: true, using: :btree
+  add_index "transactions", ["giver_id"], name: "index_transactions_on_giver_id", using: :btree
+  add_index "transactions", ["receivingcomment_id"], name: "index_transactions_on_receivingcomment_id", using: :btree
+  add_index "transactions", ["receivingpost_id"], name: "index_transactions_on_receivingpost_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "email"
@@ -164,6 +178,7 @@ ActiveRecord::Schema.define(version: 20161025172249) do
     t.integer  "coin_count",             default: 30
     t.integer  "spent_coins",            default: 0
     t.integer  "coinstobeclaimed",       default: 0
+    t.integer  "total_spent_coins",      default: 5
   end
 
   add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree

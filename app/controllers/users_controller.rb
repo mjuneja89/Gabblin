@@ -27,6 +27,25 @@ class UsersController < ApplicationController
   def show
     @user = User.friendly.find(params[:id])
     @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(16)
+    if @user.level == "Level 1"
+      @coinstobespent = 10
+    elsif @user.level == "Level 2"
+      @coinstobespent = 15
+    elsif @user.level == "Level 3"
+      @coinstobespent = 30
+    elsif @user.level == "Level 4"
+      @coinstobespent = 50
+    elsif @user.level == "Level 5"
+      @coinstobespent = 75
+    elsif @user.level == "Level 6"
+      @coinstobespent = 100
+    elsif @user.level == "Level 7"
+      @coinstobespent = 150
+    elsif @user.level == "Level 8"
+      @coinstobespent = 300
+    else @user.level == "Level 9"
+      @coinstobespent = 500
+    end       
     if current_user
       @notifications = Notification.where(:receiver_id => current_user.id).where(:unread => true)
     end

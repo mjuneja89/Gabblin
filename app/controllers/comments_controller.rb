@@ -90,6 +90,8 @@ end
 def givecommentcoins
   @comment = Comment.find(params[:comment_id])
   @user = @comment.user
+  Transaction.create!(giver_id: current_user.id, receivingcomment_id: @comment.id)
+  @comment.commentincrement
   current_user.commentgivecurrency
   @user.commentreceivecurrency
   respond_to :js
