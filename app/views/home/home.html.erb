@@ -19,12 +19,20 @@
   ga('create', 'UA-72599891-1', 'auto');
   ga('send', 'pageview');
 </script>
+
+<script type="text/javascript">
+    $(window).load(function(){
+        $('#explain').modal('show');
+    });
+</script>
+
  
 <% end %>
     
   
   <%= render 'shared/navbar' %>
-  <%= render 'shared/navbarsupport' %> 
+  <%= render 'shared/navbarsupport' %>
+  <%= render 'shared/explanatorymodal' %>  
 
   <% if @cover.id == 1 %> 
    
