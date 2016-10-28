@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 .gabblinarea
 {
 	display: block;
@@ -107,3 +108,30 @@ figure
 	}
 }
 
+.modalimg
+{
+	height: 75px;
+	width: 75px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#encyclopedialink a:link
+{
+	color: rgba(0,0,0,0.6);
+	text-decoration: underline;
+}
+
+
+#encyclopedialink a:visited
+{
+	color: rgba(0,0,0,0.6);
+	text-decoration: underline;
+}
+
+
+#encyclopedialink a:hover
+{
+	color: rgba(0,0,0,0.6);
+	text-decoration: underline;
+}

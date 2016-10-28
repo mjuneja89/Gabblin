@@ -96,3 +96,5 @@ gem 'premailer-rails'
 gem 'nokogiri'
 
 gem 'daemons'
+
+gem 'whenever', :require => false
