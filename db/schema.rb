@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161028134443) do
+ActiveRecord::Schema.define(version: 20161029113409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -175,7 +175,7 @@ ActiveRecord::Schema.define(version: 20161028134443) do
     t.string   "activation_token"
     t.boolean  "activated",              default: false
     t.string   "unsubscribe_token"
-    t.integer  "coin_count",             default: 30
+    t.integer  "coin_count",             default: 15
     t.integer  "spent_coins",            default: 0
     t.integer  "coinstobeclaimed",       default: 0
     t.integer  "total_spent_coins",      default: 0
