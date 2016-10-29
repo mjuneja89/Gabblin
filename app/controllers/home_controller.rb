@@ -8,6 +8,14 @@ def home
   @posts = Post.order(updated_at: :desc, created_at: :desc, comments_count: :desc).page(params[:page]).per(16) 
 end
 
+def insufficientcoins	
+  respond_to :js
+end
+
+def insufficientpostcoins
+  @notifications = Notification.where(:receiver_id => current_user.id).where(:unread => true)
+end
+
 end
 
 

@@ -106,7 +106,7 @@
 
                <% if current_user %>
                   
-                  <% if current_user == post.user %>
+                  <% if current_user == post.user || current_user.coin_count < 3 %>
                         
                     <div class="signincoin">
                       <%= image_tag("coinsunclicked.png", :class => "fitimg") %>

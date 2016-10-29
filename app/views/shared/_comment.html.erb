@@ -42,7 +42,7 @@
 
        <% if current_user %>
          
-          <% if current_user == comment.user %>
+          <% if current_user == comment.user || current_user.coin_count < 2 %>
 
             <div class="signincoin">
                   <%= image_tag("coinsunclicked.png", :class => "fitimg") %>
@@ -133,7 +133,7 @@
 
 <% if comment.responses.any? %>
 
-<% comment.responses.order(hearts_count: :desc).limit(3).each_with_index do |response, i| %>
+<% comment.responses.order(coin_count: :desc).limit(3).each_with_index do |response, i| %>
 
 <div class="response_<%= comment.id %>" style="margin-top: -1.25rem">
   <%= render :partial => "shared/comment", locals: {comment: response} %>

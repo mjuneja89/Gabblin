@@ -43,14 +43,14 @@ class PostsController < ApplicationController
     end
   
   else 
-    redirect_to insufficientcoins_path
+    redirect_to insufficientpostcoins_path
   end   
 end
 
  def show
   @community = Community.friendly.find(params[:community_id])
   @post = Post.friendly.find(params[:id])
-  @comments = @post.comments.order(hearts_count: :desc).page(params[:page]).per(10)
+  @comments = @post.comments.order(coin_count: :desc).page(params[:page]).per(10)
   if current_user
     @notifications = Notification.where(:receiver_id => current_user.id).where(:unread => true)
   end

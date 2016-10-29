@@ -19,6 +19,7 @@ class CommentsController < ApplicationController
     current_user.commentcreatecurrency
     current_user.checklevel
     @user.increment!(:coin_count, 2)
+    @post.increment!(:coin_count, 2)
     @post.update_attribute(:updated_at, Time.now)
      
     unless current_user == @post.user  
@@ -52,6 +53,7 @@ class CommentsController < ApplicationController
    current_user.commentcreatecurrency
    current_user.checklevel
    @user.increment!(:coin_count, 1)
+   @comment.increment!(:coin_count, 1)
 
    if @comment.post.present?
   	 @comment.post.update_attribute(:updated_at, Time.now)
@@ -93,6 +95,7 @@ end
 #Give Coins Starts
 
 def givecommentcoins
+ if current_user.coin_count > 1 
   @comment = Comment.find(params[:comment_id])
   @user = @comment.user
   Transaction.create!(giver_id: current_user.id, receivingcomment_id: @comment.id)
@@ -100,6 +103,9 @@ def givecommentcoins
   current_user.commentgivecurrency
   @user.commentreceivecurrency
   respond_to :js
+ else
+  redirect_to insufficientcoins_path
+ end      
 end   
    
 #Give Coins Ends

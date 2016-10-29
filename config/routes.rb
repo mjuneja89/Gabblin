@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   root "home#home"
+  get "insufficientcoins" => "home#insufficientcoins"
+  get "insufficientpostcoins" => "home#insufficientpostcoins"
   
   get "/encyclopedia/vision" =>  "encyclopedia#vision"
   get "/encyclopedia/rules" => "encyclopedia#rules"
