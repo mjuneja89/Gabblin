@@ -38,27 +38,39 @@
 
     <div class="col-xs-4">
 
-     <div class="heartbox" id="commentheartbox_<%= comment.id %>">
+     <div class="heartbox" id="commentcoinbox_<%= comment.id %>">
 
        <% if current_user %>
          
-         <% if comment.hearted? current_user %>
-             
-           <%= render partial: "shared/heartedc", locals: {c: comment} %>
-               
-         <% else %>
-           
-           <%= render partial: "shared/unheartedc", locals: {c: comment} %> 
-         
-         <% end %>
+        <% if current_user == comment.user %>
 
+            <div class="signincoin">
+                  <%= image_tag("coinsunclicked.png", :class => "fitimg") %>
+            </div>
+
+        <% else %>
+
+          <% if comment.given?(current_user) %>
+             
+            <%= render partial: "shared/coinsgivenc", locals: {c: comment} %>
+               
+          <% else %>
+           
+            <%= render partial: "shared/coinsnotgivenc", locals: {c: comment} %> 
+         
+          <% end %>
+        
+        <% end %>
+          
       <% else %>
         
           <div id="heartlink">
 
               <%= link_to signin_path do %>
                            
-                  <i class="fa fa-heart-o"></i>
+                <div class="signincoin">
+                  <%= image_tag("coinsunclicked.png", :class => "fitimg") %>
+                </div>
 
               <% end %>
 
@@ -68,9 +80,9 @@
      
      </div>             
     
-      <div class="heartcount" id="commentheartcount_<%= comment.id %>">
+      <div class="heartcount" id="commentcoincount_<%= comment.id %>">
                 
-         <%= render partial: "shared/commentheartlength", locals: {c: comment} %>
+         <%= render partial: "shared/coincountc", locals: {c: comment} %>
                                   
       </div>    
 

@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
    if current_user.coin_count > 1
 
     @post = Post.friendly.find(params[:post_id])
+    @user = @post.user
     
     @comment = current_user.comments.build(comment_params) do |comment|
       comment.post = @post
@@ -17,6 +18,7 @@ class CommentsController < ApplicationController
     
     current_user.commentcreatecurrency
     current_user.checklevel
+    @user.increment!(:coin_count, 2)
     @post.update_attribute(:updated_at, Time.now)
      
     unless current_user == @post.user  
@@ -41,21 +43,24 @@ class CommentsController < ApplicationController
   
   if current_user.coin_count > 1
 
+   @user = @comment.user 
+
    @response = current_user.comments.build(comment_params) do |response|
      response.parent = @comment
    end
 
    current_user.commentcreatecurrency
    current_user.checklevel
+   @user.increment!(:coin_count, 1)
 
    if @comment.post.present?
   	 @comment.post.update_attribute(:updated_at, Time.now)
    end
 
    unless current_user == @comment.user  
-     @notification = Notification.create!(:sender_id => current_user.id, :receiver_id => @comment.user.id, :comment_id => @comment.id, :category => "response", :unread => true)
+     @notification = Notification.create!(:sender_id => current_user.id, :receiver_id => @comment.user.id, :comment_id => @comment.id, :category => "response", :unread => true)  
      SendResponseJob.set(wait: 40.seconds).perform_later(@comment, current_user, @comment.user)   
-   end
+  end
 
    @responses = @comment.responses.order(created_at: :desc)
 

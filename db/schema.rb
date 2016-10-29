@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161026172058) do
+ActiveRecord::Schema.define(version: 20161028134443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -178,7 +178,7 @@ ActiveRecord::Schema.define(version: 20161026172058) do
     t.integer  "coin_count",             default: 30
     t.integer  "spent_coins",            default: 0
     t.integer  "coinstobeclaimed",       default: 0
-    t.integer  "total_spent_coins",      default: 5
+    t.integer  "total_spent_coins",      default: 0
   end
 
   add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree

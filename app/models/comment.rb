@@ -15,6 +15,10 @@ class Comment < ActiveRecord::Base
  	self.hearts.where(user_id: user.id).present?
  end
 
+ def given?(user)
+   Transaction.where(giver_id: user.id).where(receivingcomment_id: self.id).present?
+ end
+
  def commentincrement
   self.increment!(:coin_count, 1)
  end

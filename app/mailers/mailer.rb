@@ -36,5 +36,14 @@ class Mailer < ApplicationMailer
     mail(from: "Gabblin: Notifications", to: idol.email, subject: "You have a new fan!")
   end    
   
+  def newcoins(user)
+    @user = user
+    mail(from: "Gabblin: Notifications", to: @user.email, subject:"Claim your coins!")
+  end
+
+  def newlevel(user)
+    @user = user
+    mail(from: "Gabblin: Notifications", to: @user.email, subject:"You have just been promoted!")
+  end
 
 end

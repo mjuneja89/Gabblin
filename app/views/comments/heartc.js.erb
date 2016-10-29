@@ -1,2 +1,0 @@
-$('#commentheartbox_<%= @comment.id %>').html("<%= escape_javascript(render(:partial => 'shared/heartedc', locals: {c: @comment})).html_safe %>")
-$('#commentheartcount_<%= @comment.id %>').html("<%= escape_javascript(render(:partial => 'shared/commentheartlength', locals: {c: @comment})).html_safe %>")

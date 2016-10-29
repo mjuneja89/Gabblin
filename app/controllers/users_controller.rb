@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :correctuser, only: [:edit, :update, :destroy]
+  before_action :correctuser, only: [:edit, :update, :destroy, :claim]
    before_action :store_return_to, only: [:show]
 
   
@@ -116,6 +116,13 @@ class UsersController < ApplicationController
       Connection.delete(@connection)
       respond_to :js
    end 
+
+   def claim
+      @user = User.friendly.find(params[:user_id])
+      @user.increment!(:coin_count, 20)
+      @user.update_attribute(:coinstobeclaimed, 0)
+      redirect_to @user
+   end
     
     private
     

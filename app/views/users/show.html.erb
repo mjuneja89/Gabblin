@@ -67,6 +67,10 @@
 
        </div>
        
+       <% if current_user == @user && @user.coinstobeclaimed == 20 %>
+       <%= render :partial => 'shared/claimcoins', locals: {u: @user} %>
+       <% end %>
+       
        <div class="inlineinfo">
        
        <p class="posts" style="color: rgba(0,0,0,.6)"><%= @user.posts.size %> Posts</p>

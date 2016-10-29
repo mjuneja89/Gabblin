@@ -56,12 +56,14 @@ def postcreatecurrency
     self.decrement!(:coin_count, 5)
     self.increment!(:spent_coins, 5)
     self.increment!(:total_spent_coins, 5)
+    self.checklevel
 end
 
 def postgivecurrency
     self.decrement!(:coin_count, 2)
     self.increment!(:spent_coins, 2)    
     self.increment!(:total_spent_coins, 5)
+    self.checklevel
 end
 
 def postreceivecurrency
@@ -72,12 +74,14 @@ def commentcreatecurrency
     self.decrement!(:coin_count, 2)
     self.increment!(:spent_coins, 2)
     self.increment!(:total_spent_coins, 2)
+    self.checklevel
 end
 
 def commentgivecurrency
     self.decrement!(:coin_count, 1)
     self.increment!(:spent_coins, 1)
     self.increment!(:total_spent_coins, 2)
+    self.checklevel
 end
 
 def commentreceivecurrency
@@ -88,38 +92,47 @@ def checklevel
  if self.spent_coins > 10 && self.spent_coins < 25
     update_attribute(:level, "Level 2")
     update_attribute(:spent_coins, 0)
+    SendLevelJob.set(wait: 20.seconds).perform_later(self) 
  end   
  if self.spent_coins > 25 && self.spent_coins < 55
     update_attribute(:level, "Level 3")
     update_attribute(:spent_coins, 0)
+    SendLevelJob.set(wait: 20.seconds).perform_later(self) 
  end   
  if self.spent_coins > 55 && self.spent_coins < 105
     update_attribute(:level, "Level 4")
     update_attribute(:spent_coins, 0)
+    SendLevelJob.set(wait: 20.seconds).perform_later(self) 
  end        
  if self.spent_coins > 105 && self.spent_coins < 180
     update_attribute(:level, "Level 5")
     update_attribute(:spent_coins, 0)
+    SendLevelJob.set(wait: 20.seconds).perform_later(self) 
  end   
  if self.spent_coins > 180 && self.spent_coins < 280
     update_attribute(:level, "Level 6")
     update_attribute(:spent_coins, 0)
+    SendLevelJob.set(wait: 20.seconds).perform_later(self) 
  end   
  if self.spent_coins > 280 && self.spent_coins < 430
     update_attribute(:level, "Level 7")
     update_attribute(:spent_coins, 0)
+    SendLevelJob.set(wait: 20.seconds).perform_later(self) 
  end   
  if self.spent_coins > 430 && self.spent_coins < 770
     update_attribute(:level, "Level 8")
     update_attribute(:spent_coins, 0)
+    SendLevelJob.set(wait: 20.seconds).perform_later(self) 
  end   
  if self.spent_coins > 770 && self.spent_coins < 1270
     update_attribute(:level, "Level 9")
     update_attribute(:spent_coins, 0)
+    SendLevelJob.set(wait: 20.seconds).perform_later(self) 
  end       
  if self.spent_coins > 1270
     update_attribute(:level, "Level 10")
-    update_attribute(:spent_coins, 0)    
+    update_attribute(:spent_coins, 0)   
+    SendLevelJob.set(wait: 20.seconds).perform_later(self) 
  end
 end 
 

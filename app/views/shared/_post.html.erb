@@ -102,19 +102,29 @@
            
            <div class="heartfunctionality">
                                
-             <div class="heartbox" id="heartbox_<%= post.id %>">
+             <div class="heartbox" id="coinbox_<%= post.id %>">
 
                <% if current_user %>
+                  
+                  <% if current_user == post.user %>
+                        
+                    <div class="signincoin">
+                      <%= image_tag("coinsunclicked.png", :class => "fitimg") %>
+                    </div>
 
-                    <% if post.hearted?(current_user) %>
+                  <% else %>
+
+                    <% if post.given?(current_user) %>
                        
-                       <%= render partial: "shared/hearted", locals: {c: post.community, p: post} %>
+                        <%= render partial: "shared/coinsgiven", locals: {c: post.community, p: post} %>
                     
-                    <% else %>
+                     <% else %>
 
-                       <%= render partial: "shared/unhearted", locals: {c: post.community, p: post} %>
+                        <%= render partial: "shared/coinsnotgiven", locals: {c: post.community, p: post} %>
                     
-                    <% end %>
+                     <% end %>
+
+                    <% end %>  
 
                 <% else %>
                      
@@ -134,9 +144,9 @@
 
              </div>
 
-             <div class="heartcount" id="heartcount_<%= post.id %>">
+             <div class="heartcount" id="coincount_<%= post.id %>">
                 
-                <%= render partial: "shared/heartlength", locals: {c: post.community, p: post} %>
+                <%= render partial: "shared/coincount", locals: {c: post.community, p: post} %>
                                   
              </div>  
            

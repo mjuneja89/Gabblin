@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     delete 'unfan' => 'users#unfan'
     get 'notifications' => 'users#notifications'
     get 'activate' => 'users#activate' 
+    put 'claim' => 'users#claim'
   end
    
   get '/signin' => "sessions#new"
@@ -34,6 +35,8 @@ Rails.application.routes.draw do
   resources :communities do
     resources :posts do
      put "givecoins" => "posts#givecoins"
+     put "heart" => "posts#heart"
+     put "unheart" => "posts#unheart"
     end
     put 'follow' => 'communities#follow'
     delete 'unfollow' => 'communities#unfollow'

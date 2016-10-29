@@ -1,0 +1,2 @@
+$('#commentcoinbox_<%= @comment.id %>').html("<%= escape_javascript(render(:partial => 'shared/coinsgivenc', locals: {c: @comment})).html_safe %>")
+$('#commentcoincount_<%= @comment.id %>').html("<%= escape_javascript(render(:partial => 'shared/coincountc', locals: {c: @comment})).html_safe %>")

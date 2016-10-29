@@ -17,6 +17,10 @@ class Post < ActiveRecord::Base
  def hearted?(user)
   self.hearts.where(user_id: user.id).present?
  end    
+
+ def given?(user)
+  Transaction.where(giver_id: user.id).where(receivingpost_id: self.id).present?
+ end
     
  def fetchstuff
   @content = LinkThumbnailer.generate(self.link)
@@ -26,7 +30,7 @@ class Post < ActiveRecord::Base
  end
 
  def postincrement
-  self.increment!(:coin_count, 1)
+  self.increment!(:coin_count, 2)
  end
 
  def self.search(search)
