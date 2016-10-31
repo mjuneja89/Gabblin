@@ -27,6 +27,12 @@ $('.followhide').hide();
 
   ga('create', 'UA-72599891-1', 'auto');
   ga('send', 'pageview');
+</script>
+
+<script type="text/javascript">
+    $(window).load(function(){
+        $('#explain').modal('show');
+    });
 </script>    
 
 </head>
@@ -36,6 +42,7 @@ $('.followhide').hide();
    
    <%= render :partial => "/shared/navbar" %>  
    <%= render :partial => "/shared/navbarsupport" %>
+   <%= render 'shared/explanatorymodal' %>
 
 <div class="container-fluid" style="margin-top: 3%">
    
